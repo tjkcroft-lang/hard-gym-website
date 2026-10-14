@@ -4,9 +4,9 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>HARD GYM | No Bull. Just Results. | Personal Training Lambton</title>
 <meta name="description" content="HARD GYM Lambton. Serious coaching, no gimmicks. 1-on-1, 2-on-1 and small-group strength training in Newcastle. Unit 3, 37 Griffiths Road.">
-<meta name="theme-color" content="#171719">
+<meta name="theme-color" content="#39040f">
 <style>
-:root{--ink:#111113;--steel:#27292c;--silver:#b8b9b8;--paper:#e7e5df;--red:#831c30;--hot:#c53649}
+:root{--ink:#110d10;--steel:#29272a;--silver:#b8b9b8;--paper:#e7e5df;--red:#800019;--hot:#bb3049}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#151517;color:var(--paper);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
 a{color:inherit} .wrap{max-width:1160px;margin:auto;padding:0 24px}
 .metal{background-color:#282a2d;background-image:repeating-linear-gradient(94deg,transparent 0px,rgba(255,255,255,.025) 1px,transparent 3px,rgba(0,0,0,.14) 6px),linear-gradient(120deg,#141518,#4a4b4d 47%,#191a1c 100%)}
@@ -74,6 +74,33 @@ footer{padding:25px 0;background:#101012;color:#999;font-size:12px;text-transfor
 .motion-on .motion-card:nth-child(3){transition-delay:220ms}
 @media(hover:hover){.service:hover{transform:translateY(-5px)!important;border-color:#c04a5c}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.motion-on .reveal,.motion-on .motion-heading,.motion-on .motion-copy,.motion-on .motion-card{opacity:1;transform:none;filter:none;clip-path:none}}
+
+/* Updated HARD GYM palette: layered wine-red steel, preserving original diamond plate image */
+body{background:#14070b}
+nav{background:#180e12f2;border-bottom-color:#9b364855}
+.hero{border-bottom-color:#850a25}
+.hero.metal{background-color:#280b14}
+.hero.metal::before{background:linear-gradient(125deg,rgba(14,0,6,.35),rgba(109,0,27,.23),rgba(7,0,3,.36)),repeating-linear-gradient(145deg,transparent 0 28px,#0002 29px 31px,transparent 32px 60px);opacity:1}
+.stripe{background:linear-gradient(90deg,#43000e,#8d0625 48%,#39000c)}
+.statement{background:linear-gradient(180deg,#8b001d 0%,#6b0018 35%,#41000f 70%,#1c0008 100%)}
+.btn{background:#7d1428;border-color:#aa3a50}
+.btn:hover{background:#9d203a}
+.service{background:linear-gradient(145deg,#393034,#21161c);border-top-color:#9a2039}
+.contact{background:#e3e0d9}
+.consultation-intro{font-size:clamp(17px,2vw,21px);font-weight:700;line-height:1.55;max-width:760px;margin:32px 0 0}
+.contact .actions{margin-top:20px}
+
+
+/* Keep both consultation actions side by side, including on iPhone */
+.contact .actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:stretch}
+.contact .actions .btn{display:flex;align-items:center;justify-content:center;text-align:center;min-width:0;box-sizing:border-box;line-height:1.3;padding:17px 12px}
+@media(max-width:480px){.contact .actions{gap:10px}.contact .actions .btn{font-size:11px;letter-spacing:.5px;padding:15px 7px}}
+
+/* Contact details: balanced two-column layout on mobile and desktop */
+.contact .details{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(12px,4vw,48px);align-items:start}
+.contact .details>div{min-width:0}
+.contact .details p{overflow-wrap:anywhere}
+@media(max-width:480px){.contact .details{gap:12px}.contact .details strong{font-size:clamp(12px,3.5vw,16px)}.contact .details p{font-size:clamp(12px,3.35vw,16px);line-height:1.55}.contact .details a{font-size:inherit}}
 </style>
 </head>
 <body>
@@ -102,9 +129,10 @@ footer{padding:25px 0;background:#101012;color:#999;font-size:12px;text-transfor
 <div class="step"><div class="num">03</div><h3>GET AFTER IT</h3><p>Start training with a clear direction. Then keep showing up and building on it.</p></div></div></div></section>
 <section class="contact" id="contact"><div class="wrap"><div class="tag">Your move</div><h2 class="reveal">READY TO STOP<br>MUCKING AROUND?</h2>
 <p>Don't need to be fit to start. Don't need to know your way around a gym. Just be willing to turn up and do the work. Tell us what you're after and we'll work out the best place to start.</p>
-<div class="actions reveal"><a class="btn" href="tel:+61413410295">Call 0413 410 295 →</a><a class="btn" href="https://www.instagram.com/hardgymnewcastle/" target="_blank" rel="noopener">Message on Instagram →</a></div>
+<p class="consultation-intro reveal">To get started, email or DM us with your name and "Get Started" to book a free consultation.</p>
+<div class="actions reveal"><a class="btn" href="mailto:info@hardgym.com.au?subject=Get%20Started">INFO@HARDGYM.COM.AU</a><a class="btn" href="https://www.instagram.com/hardgymnewcastle/" target="_blank" rel="noopener">DM US ON INSTAGRAM</a></div>
 <div class="details"><div><strong>FIND US</strong><p>Unit 3, 37 Griffiths Road<br>Lambton NSW 2299<br><a href="https://www.google.com/maps/search/?api=1&query=Unit+3+37+Griffiths+Road+Lambton+NSW+2299" target="_blank" rel="noopener">Get directions ↗</a></p></div><div><strong>FOLLOW ALONG</strong><p><a href="https://www.instagram.com/hardgymnewcastle/" target="_blank" rel="noopener">@hardgymnewcastle ↗</a></p></div></div>
-<p class="note">Enquiries currently via phone or Instagram. Add your preferred business email and booking link before publishing.</p>
+
 </div></section>
 <footer><div class="wrap">© 2026 HARD GYM PTY LTD · Lambton, Newcastle · No bull. Just work.</div></footer>
 <script>
@@ -114,21 +142,34 @@ footer{padding:25px 0;background:#101012;color:#999;font-size:12px;text-transfor
   const sections=[...document.querySelectorAll('section,header')];
   sections.forEach(section=>{
     section.querySelectorAll('h1,h2').forEach(el=>el.classList.add('motion-heading'));
-    section.querySelectorAll('.tag,.lead,.sectionintro, p:not(.note)').forEach(el=>el.classList.add('motion-copy'));
+    section.querySelectorAll('.tag,.lead,.sectionintro,p:not(.note)').forEach(el=>el.classList.add('motion-copy'));
     section.querySelectorAll('.service,.step').forEach(el=>el.classList.add('motion-card'));
   });
-  const targets=[...document.querySelectorAll('.reveal,.motion-heading,.motion-copy,.motion-card')];
-  // Immediately reveal content already on screen, so nothing flashes or disappears on load.
-  targets.forEach(el=>{if(el.getBoundingClientRect().top < window.innerHeight*0.94)el.classList.add('is-visible')});
+  const targets=[...new Set(document.querySelectorAll('.reveal,.motion-heading,.motion-copy,.motion-card'))];
+  // Never hide content already visible when the page opens.
+  targets.forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.top < innerHeight && r.bottom > 0)el.classList.add('is-visible');
+  });
   document.documentElement.classList.add('motion-on');
-  if(!('IntersectionObserver' in window)){targets.forEach(el=>el.classList.add('is-visible'));return;}
-  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
-    if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}
-  }),{threshold:0.06,rootMargin:'0px 0px -35px 0px'});
-  targets.filter(el=>!el.classList.contains('is-visible')).forEach(el=>observer.observe(el));
-  // Fallback for restrictive local-file viewers where observers don't fire reliably.
-  function check(){targets.forEach(el=>{if(!el.classList.contains('is-visible')&&el.getBoundingClientRect().top<window.innerHeight*.91)el.classList.add('is-visible')})}
-  window.addEventListener('scroll',check,{passive:true});window.addEventListener('resize',check,{passive:true});
-  check();
+  if(!('IntersectionObserver' in window)){
+    targets.forEach(el=>el.classList.add('is-visible'));
+    return;
+  }
+  // Keep observing: leaving the viewport resets an element so it can animate
+  // again on the next entry, whether scrolling upwards or downwards.
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+      }else{
+        const r=entry.target.getBoundingClientRect();
+        // Reset only once fully outside the viewport; avoids flicker on long blocks.
+        if(r.bottom < -30 || r.top > innerHeight+30)
+          entry.target.classList.remove('is-visible');
+      }
+    });
+  },{threshold:0,rootMargin:'30px 0px 30px 0px'});
+  targets.forEach(el=>observer.observe(el));
 })();
 </script></body></html>
