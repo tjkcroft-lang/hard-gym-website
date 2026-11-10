@@ -426,7 +426,6 @@ body.hg-signup-locked{overflow:hidden}
   let seen=false;
   try{seen=sessionStorage.getItem(key)==='1';}catch(e){}
   let opened=false, previousFocus=null;
-  const initialScroll=window.scrollY;
   function show(){
     if(seen||opened||document.body.classList.contains('hg-drawer-locked'))return;
     opened=true;seen=true;
@@ -441,12 +440,18 @@ body.hg-signup-locked{overflow:hidden}
     document.body.classList.remove('hg-signup-locked');
     if(previousFocus&&typeof previousFocus.focus==='function')previousFocus.focus();
   }
-  let lastY=window.scrollY;
-  window.addEventListener('scroll',function(){
-    const y=window.scrollY;
-    if(!seen && y>lastY && y>initialScroll+45)show();
-    lastY=y;
-  },{passive:true});
+  // Show five seconds after page load, rather than on scroll.
+  // If the consultation drawer is open, wait until it closes.
+  if(!seen){
+    setTimeout(function tryShow(){
+      if(seen||opened)return;
+      if(document.body.classList.contains('hg-drawer-locked')){
+        setTimeout(tryShow,500);
+      }else{
+        show();
+      }
+    },5000);
+  }
   close.addEventListener('click',dismiss);
   overlay.addEventListener('click',e=>{if(e.target===overlay)dismiss();});
   document.addEventListener('keydown',e=>{
