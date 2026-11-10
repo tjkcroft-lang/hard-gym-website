@@ -279,6 +279,17 @@ nav {
   .hero.metal .hero-video { display: block; }
 }
 </style>
+
+<style>
+/* Centre only the introduction below the video; preserve its typography and buttons. */
+.hero-copy-section .hero-content { text-align: center; }
+.hero-copy-section .hero-content h1,
+.hero-copy-section .hero-content .lead { margin-left: auto; margin-right: auto; }
+.hero-copy-section .hero-content .actions { justify-content: center; }
+@media (max-width: 750px) {
+  .hero-copy-section .hero-content .actions { align-items: center; }
+}
+</style>
 </head><body>
 <nav><div class="wrap nav"><a aria-label="HARD GYM home" class="logo" href="#"><img alt="HARD GYM" height="108" src="hard-gym-header-logo.png" width="150"/></a><div class="navlinks"><a href="#training">Training</a><a href="#approach">The standard</a><a href="get-started.html">Get started</a></div></div></nav>
 <header class="hero metal">
