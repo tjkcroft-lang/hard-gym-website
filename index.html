@@ -292,14 +292,14 @@ nav {
 </style>
 
 <style>
-/* Desktop-only: keep the video to a single, scroll-friendly screen.
+/* Desktop-only: fill the visible browser viewport before the next section.
    Mobile video layout and all other sections remain unchanged. */
 @media (min-width: 751px) {
   .hero.metal {
-    height: 72vh;
-    height: 72svh;
+    height: 100vh;
+    height: 100svh;
     min-height: 0;
-    max-height: 780px;
+    max-height: none;
     overflow: hidden;
   }
   .hero.metal .hero-video {
@@ -311,6 +311,33 @@ nav {
     object-fit: cover;
     object-position: center center;
   }
+}
+</style>
+
+<style id="hg-center-content-sections">
+/* Center the content of the four requested sections only. */
+#training, #approach, section.metal, #contact { text-align: center; }
+#training .sectionintro, #approach h2, #approach p, #contact h2, #contact > .wrap > p { margin-left: auto; margin-right: auto; }
+#training .service, section.metal .step { text-align: center; }
+#contact .actions { justify-content: center; }
+/* Preserve the existing two-column button arrangement where applicable. */
+#contact .actions { width: fit-content; max-width: 100%; margin-left: auto; margin-right: auto; }
+#contact .details { text-align: center; justify-items: center; }
+#contact .details > div { text-align: center; }
+</style>
+
+<style id="hg-mobile-center-content-sections">
+/* Mobile-only alignment for Training, The Standard, How to Start and Your Move. */
+@media screen and (max-width: 750px) {
+  #training, #approach, section.metal, #contact { text-align: center; }
+  #training .wrap, #approach .wrap, section.metal .wrap, #contact .wrap { text-align: center; }
+  #training h2, #training .sectionintro, #approach h2, #approach p,
+  section.metal h2, section.metal p, #contact h2, #contact p,
+  #contact .consultation-intro { text-align: center; margin-left: auto; margin-right: auto; }
+  #training .service, section.metal .step { text-align: center; }
+  #contact .actions { justify-content: center; align-items: center; margin-left: auto; margin-right: auto; }
+  #contact .details { text-align: center; justify-items: center; }
+  #contact .details > div { text-align: center; }
 }
 </style>
 </head><body>
