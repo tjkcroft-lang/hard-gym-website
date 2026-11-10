@@ -368,4 +368,97 @@ nav {
   });
 })();
 </script>
+
+<!-- HARD GYM newsletter signup: separate from consultation drawer -->
+<style>
+.hg-signup-overlay{position:fixed;inset:0;z-index:11000;background:rgba(0,0,0,.82);display:flex;align-items:center;justify-content:center;padding:22px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+.hg-signup-overlay.is-open{opacity:1;visibility:visible}
+.hg-signup-modal{position:relative;display:grid;grid-template-columns:1.08fr 1fr;width:min(950px,100%);max-height:calc(100dvh - 44px);background:#f3f0e9;color:#161517;box-shadow:0 28px 90px #000a;overflow:auto}
+.hg-signup-form-side{padding:clamp(26px,4vw,54px);align-self:center}
+.hg-signup-eyebrow{font-size:11px;letter-spacing:2.6px;font-weight:800;color:#98243b;margin:0 0 14px}
+.hg-signup-form-side h2{font-size:clamp(36px,4.2vw,59px);line-height:.95;letter-spacing:-.055em;margin:0 0 16px;color:#151416}
+.hg-signup-description{font-size:14px;line-height:1.6;margin:0 0 22px;color:#3d3839}
+.hg-signup-form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hg-signup-field{min-width:0}
+.hg-signup-field.wide,.hg-signup-consent,.hg-signup-submit{grid-column:1/-1}
+.hg-signup-field label{display:block;font-size:11px;letter-spacing:1px;font-weight:800;margin:0 0 5px;color:#2a2627}
+.hg-signup-field input{width:100%;min-height:42px;padding:10px 11px;border:1px solid #bdb5b2;border-radius:0;background:#fff;color:#171517;font:14px Arial,sans-serif}
+.hg-signup-field input:focus-visible,.hg-signup-close:focus-visible,.hg-signup-submit:focus-visible{outline:3px solid #c63e58;outline-offset:2px}
+.hg-signup-consent{display:flex;align-items:flex-start;gap:9px;margin-top:3px;font-size:11px;line-height:1.45;color:#51484a}
+.hg-signup-consent input{margin-top:2px;accent-color:#800019;flex:none}
+.hg-signup-submit{border:0;background:#800019;color:#fff;min-height:48px;padding:13px;font:800 12px Arial,sans-serif;letter-spacing:1.5px;cursor:pointer}
+.hg-signup-submit:hover{background:#a62a40}
+.hg-signup-image{min-height:520px;background:#222 url('hard-gym-signup-photo.jpg') center center / cover no-repeat}
+.hg-signup-close{position:absolute;right:12px;top:12px;z-index:2;width:38px;height:38px;background:#f3f0e9;color:#111;border:0;font:28px/1 Arial,sans-serif;cursor:pointer}
+body.hg-signup-locked{overflow:hidden}
+@media(max-width:650px){.hg-signup-overlay{padding:12px}.hg-signup-modal{grid-template-columns:1fr;max-height:calc(100dvh - 24px)}.hg-signup-image{grid-row:1;min-height:150px;height:clamp(150px,24dvh,230px);background-position:center 44%}.hg-signup-form-side{padding:20px 22px 25px}.hg-signup-form-side h2{font-size:39px;margin-bottom:10px}.hg-signup-description{font-size:12px;margin-bottom:13px}.hg-signup-form{gap:9px}.hg-signup-field input{min-height:38px;padding:8px}.hg-signup-close{top:8px;right:8px}.hg-signup-consent{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.hg-signup-overlay{transition:none}}
+</style>
+<div class="hg-signup-overlay" id="hgSignupOverlay" aria-hidden="true">
+  <div class="hg-signup-modal" role="dialog" aria-modal="true" aria-labelledby="hgSignupTitle">
+    <button class="hg-signup-close" id="hgSignupClose" type="button" aria-label="Close email signup">&times;</button>
+    <div class="hg-signup-form-side">
+      <p class="hg-signup-eyebrow">HARD GYM · LAMBTON, NEWCASTLE</p>
+      <h2 id="hgSignupTitle">JOIN THE<br>CREW.</h2>
+      <p class="hg-signup-description">Get HARD GYM news, training updates and first access to what's happening at the gym. No fluff. Just the good stuff.</p>
+      <form class="hg-signup-form" action="https://formsubmit.co/info@hardgym.com.au" method="POST">
+        <input type="hidden" name="_subject" value="HARD GYM — New email signup">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="hg-signup-field"><label for="hgSignupFirst">FIRST NAME *</label><input id="hgSignupFirst" name="first_name" autocomplete="given-name" maxlength="80" required></div>
+        <div class="hg-signup-field"><label for="hgSignupLast">LAST NAME *</label><input id="hgSignupLast" name="last_name" autocomplete="family-name" maxlength="80" required></div>
+        <div class="hg-signup-field wide"><label for="hgSignupEmail">EMAIL ADDRESS *</label><input id="hgSignupEmail" name="email" type="email" autocomplete="email" maxlength="200" required></div>
+        <div class="hg-signup-field wide"><label for="hgSignupPhone">PHONE NUMBER (OPTIONAL)</label><input id="hgSignupPhone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+        <label class="hg-signup-consent"><input type="checkbox" name="marketing_consent" value="yes" required><span>I agree to receive HARD GYM news and marketing emails. My details will be sent through FormSubmit to HARD GYM. I can unsubscribe at any time. *</span></label>
+        <button class="hg-signup-submit" type="submit">JOIN THE CREW →</button>
+      </form>
+    </div>
+    <div class="hg-signup-image" role="img" aria-label="Strength training at HARD GYM"></div>
+  </div>
+</div>
+<script>
+(function(){
+  const overlay=document.getElementById('hgSignupOverlay');
+  const close=document.getElementById('hgSignupClose');
+  const first=document.getElementById('hgSignupFirst');
+  const key='hg-signup-seen-v1';
+  let seen=false;
+  try{seen=sessionStorage.getItem(key)==='1';}catch(e){}
+  let opened=false, previousFocus=null;
+  const initialScroll=window.scrollY;
+  function show(){
+    if(seen||opened||document.body.classList.contains('hg-drawer-locked'))return;
+    opened=true;seen=true;
+    try{sessionStorage.setItem(key,'1');}catch(e){}
+    previousFocus=document.activeElement;
+    overlay.classList.add('is-open');overlay.setAttribute('aria-hidden','false');
+    document.body.classList.add('hg-signup-locked');
+    close.focus();
+  }
+  function dismiss(){
+    overlay.classList.remove('is-open');overlay.setAttribute('aria-hidden','true');
+    document.body.classList.remove('hg-signup-locked');
+    if(previousFocus&&typeof previousFocus.focus==='function')previousFocus.focus();
+  }
+  let lastY=window.scrollY;
+  window.addEventListener('scroll',function(){
+    const y=window.scrollY;
+    if(!seen && y>lastY && y>initialScroll+45)show();
+    lastY=y;
+  },{passive:true});
+  close.addEventListener('click',dismiss);
+  overlay.addEventListener('click',e=>{if(e.target===overlay)dismiss();});
+  document.addEventListener('keydown',e=>{
+    if(!overlay.classList.contains('is-open'))return;
+    if(e.key==='Escape')dismiss();
+    if(e.key==='Tab'){
+      const controls=[...overlay.querySelectorAll('button,input:not([type="hidden"]):not([tabindex="-1"])')].filter(el=>el.getClientRects().length);
+      const firstEl=controls[0],lastEl=controls[controls.length-1];
+      if(e.shiftKey&&document.activeElement===firstEl){e.preventDefault();lastEl.focus();}
+      else if(!e.shiftKey&&document.activeElement===lastEl){e.preventDefault();firstEl.focus();}
+    }
+  });
+})();
+</script>
 </body></html>
