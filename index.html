@@ -290,6 +290,29 @@ nav {
   .hero-copy-section .hero-content .actions { align-items: center; }
 }
 </style>
+
+<style>
+/* Desktop-only: keep the video to a single, scroll-friendly screen.
+   Mobile video layout and all other sections remain unchanged. */
+@media (min-width: 751px) {
+  .hero.metal {
+    height: 72vh;
+    height: 72svh;
+    min-height: 0;
+    max-height: 780px;
+    overflow: hidden;
+  }
+  .hero.metal .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+</style>
 </head><body>
 <nav><div class="wrap nav"><a aria-label="HARD GYM home" class="logo" href="#"><img alt="HARD GYM" height="108" src="hard-gym-header-logo.png" width="150"/></a><div class="navlinks"><a href="#training">Training</a><a href="#approach">The standard</a><a href="get-started.html">Get started</a></div></div></nav>
 <header class="hero metal">
