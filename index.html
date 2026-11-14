@@ -138,6 +138,14 @@ nav {
 }
  .hero-copy-section h1, .hero-copy-section h1 em, .hero-copy-section .tag, .hero-copy-section .lead { color: #ffffff !important; }
 .hero-copy-section .btn:not(.secondary) { background: #ffffff !important; color: #000000 !important; border-color: #ffffff !important; }
+@media (hover: hover) and (pointer: fine) {
+  .hero-copy-section .actions .btn:hover { transform: scale(1.06); }
+}
+.hero-copy-section .actions .btn { transition: transform 220ms ease, background-color 220ms ease, color 220ms ease; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy-section .actions .btn { transition: none; }
+  .hero-copy-section .actions .btn:hover { transform: none; }
+}
   </style>
 <style>
 /* Consultation page call-to-action */
