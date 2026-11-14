@@ -453,15 +453,15 @@ document.addEventListener('click', function(e) {
 <!-- HARD GYM consultation drawer: paste immediately before </body> in index.html -->
 <style>
   .hg-drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:9998;opacity:0;visibility:hidden;transition:opacity .28s ease,visibility .28s ease}
-  .hg-drawer{position:fixed;inset:0 0 0 auto;width:min(720px,92vw);height:100%;height:100dvh;background:#111112;z-index:9999;transform:translateX(102%);visibility:hidden;transition:transform .32s ease,visibility .32s ease;box-shadow:-18px 0 60px #0008;display:flex;flex-direction:column}
+  .hg-drawer{position:fixed;inset:0 0 0 auto;width:min(720px,92vw);height:100%;height:100dvh;padding:0;background:#111112;z-index:9999;transform:translateX(102%);visibility:hidden;transition:transform .32s ease,visibility .32s ease;box-shadow:-18px 0 60px #0008;display:flex;flex-direction:column}
   .hg-drawer-backdrop.is-open{opacity:1;visibility:visible}
   .hg-drawer.is-open{transform:translateX(0);visibility:visible}
-  .hg-drawer-toolbar{display:flex;align-items:center;justify-content:flex-end;padding:12px 18px;background:#111112;border-bottom:1px solid #48343a;color:#f5f1ee;font:800 12px Arial,sans-serif;letter-spacing:.14em;min-height:60px}
+  .hg-drawer-toolbar{position:absolute;top:12px;right:18px;z-index:2;display:flex;align-items:center;justify-content:flex-end;padding:0;background:transparent;border:0;min-height:0}
   .hg-drawer-close{border:1px solid #72505a;background:transparent;color:#fff;font:normal 30px/1 Arial,sans-serif;width:42px;height:42px;cursor:pointer;display:grid;place-items:center}
   .hg-drawer-close:focus-visible{outline:3px solid #e4a3ae;outline-offset:2px}
   .hg-drawer-frame{width:100%;flex:1;border:0;background:#111112}
   body.hg-drawer-locked{overflow:hidden}
-  @media(max-width:600px){.hg-drawer{width:100vw;max-width:none}.hg-drawer-toolbar{padding:8px 14px;min-height:56px}}
+  @media(max-width:600px){.hg-drawer{width:100vw;max-width:none}.hg-drawer-toolbar{top:8px;right:14px}}
   @media(prefers-reduced-motion:reduce){.hg-drawer,.hg-drawer-backdrop{transition:none}}
 </style>
 <div class="hg-drawer-backdrop" id="hgDrawerBackdrop" aria-hidden="true"></div>
