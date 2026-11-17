@@ -1,0 +1,32 @@
+name: Generate accurate HARD GYM testimonial video first-frame posters
+on:
+  push:
+    paths:
+      - '.github/workflows/generate-testimonial-posters.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  posters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract original opening frames
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in anthony-gillan ian-moase member-story-3; do
+            test -s "testimonials/${name}.mp4"
+            ffmpeg -nostdin -hide_banner -loglevel error -y -i "testimonials/${name}.mp4" -vf 'select=eq(n\,0),scale=640:-2' -frames:v 1 -q:v 3 "testimonials/${name}-first-frame.jpg"
+            test -s "testimonials/${name}-first-frame.jpg"
+          done
+      - name: Commit extracted first-frame images
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add testimonials/*-first-frame.jpg
+          if ! git diff --cached --quiet; then
+            git commit -m "Add true first-frame posters for HARD GYM testimonials"
+            git push
+          fi
