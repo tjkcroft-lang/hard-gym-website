@@ -412,7 +412,74 @@ document.addEventListener('click', function(e) {
   #training .hg-training-panel span{font-size:clamp(25px,7vw,40px)}
 }
 </style>
-</head><body>
+
+<style id="hg-training-mobile-carousel">
+/* Only the mobile training section changes. Desktop retains its three-column layout. */
+#training .hg-training-mobile-controls,
+#training .hg-training-mobile-progress{display:none}
+@media (max-width:750px){
+  #training .hg-training-intro{margin-inline:0}
+  #training .hg-training-title{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    width:100%;gap:0;margin:0 0 19px;
+    font-size:clamp(49px,15.5vw,74px);line-height:.94;letter-spacing:-.055em;
+    white-space:normal;text-align:center
+  }
+  #training .hg-training-description{
+    display:block;width:100%;max-width:38rem;margin:0 auto;
+    text-align:center;text-align-last:center;font-size:clamp(15px,3.8vw,18px);line-height:1.56
+  }
+  #training{--hg-side-width:clamp(32px,8.3vw,44px)}
+  #training .hg-training-showcase{
+    position:relative;grid-template-columns:var(--hg-side-width) minmax(0,1fr) var(--hg-side-width);
+    margin-top:30px;margin-left:-22px;margin-right:-22px
+  }
+  #training .hg-training-showcase .hg-training-panels{
+    display:flex;grid-column:2;grid-row:1;gap:0;min-width:0;width:100%;margin-top:0;
+    overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding:0;
+    -webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+    scrollbar-width:none
+  }
+  #training .hg-training-panels::-webkit-scrollbar{display:none}
+  #training .hg-training-showcase .hg-training-panel{
+    display:flex;flex:0 0 100%;width:100%;min-width:100%;height:clamp(510px,158vw,690px);
+    scroll-snap-align:start;scroll-snap-stop:always;border:0
+  }
+  #training .hg-training-showcase .hg-training-panel:not(:last-child){border-right:0}
+  #training .hg-training-showcase .hg-training-panel span{font-size:clamp(29px,8vw,46px)}
+  #training .hg-training-side{
+    height:clamp(510px,158vw,690px);padding:13px 3px;
+    font-size:clamp(19px,5.2vw,25px);background:rgba(90,18,37,.4)
+  }
+  #training .hg-training-mobile-controls{
+    position:absolute;z-index:4;display:flex;justify-content:space-between;align-items:center;
+    left:calc(var(--hg-side-width) + 12px);right:calc(var(--hg-side-width) + 12px);
+    top:50%;transform:translateY(-50%);pointer-events:none
+  }
+  #training .hg-training-mobile-controls button{
+    display:grid;place-items:center;cursor:pointer;pointer-events:auto;
+    width:42px;height:42px;padding:0;border:1px solid #f5f1ee9e;border-radius:50%;
+    background:#800019e6;color:#fff;font:normal 37px/1 Arial,sans-serif;
+    box-shadow:0 3px 15px #0006;touch-action:manipulation
+  }
+  #training .hg-training-mobile-controls button:disabled{opacity:0;pointer-events:none}
+  #training .hg-training-mobile-controls button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+  #training .hg-training-mobile-progress{
+    position:absolute;z-index:4;display:block;pointer-events:none;
+    left:calc(var(--hg-side-width) + 13px);right:calc(var(--hg-side-width) + 13px);
+    bottom:13px;height:4px;background:#ffffff85
+  }
+  #training .hg-training-mobile-progress span{
+    display:block;height:100%;width:33.333%;background:#fff;transition:width .2s ease
+  }
+}
+@media (max-width:360px){
+  #training .hg-training-title{font-size:clamp(45px,15vw,55px)}
+}
+@media (prefers-reduced-motion:reduce){
+  #training .hg-training-mobile-progress span{transition:none}
+}
+</style></head><body>
 <nav><div class="wrap nav"><a aria-label="HARD GYM home" class="logo" href="#"><img alt="HARD GYM" height="108" src="hard-gym-header-logo.png" width="150"/></a><div class="navlinks"><a href="#training">Training</a><a href="#approach">The standard</a><a href="get-started.html">Get started</a></div><details class="hg-mobile-menu"><summary aria-label="Open navigation menu"><span class="hg-menu-icon" aria-hidden="true">☰</span></summary><div class="hg-mobile-menu-panel"><a href="#training">Training</a><a href="#approach">The Standard</a><a href="get-started.html">Get Started</a></div></details></div></nav>
 <header class="hero metal">
 <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
@@ -440,7 +507,44 @@ document.addEventListener('click', function(e) {
 <a class="hg-training-panel reveal" href="get-started.html" aria-label="Enquire about private group training"><img src="IMG_8059.jpeg" alt="HARD GYM members taking part in a coached group session" loading="lazy"/><span>PRIVATE GROUP</span></a>
 </div>
 <div class="hg-training-side hg-training-side--right" aria-label="PUT IN THE WORK."><span>PUT</span><span>IN</span><span>THE</span><span>WORK.</span></div>
+<div class="hg-training-mobile-controls" aria-label="Training photo carousel controls">
+<button type="button" class="hg-training-previous" aria-label="Previous training photo" disabled>&#8249;</button>
+<button type="button" class="hg-training-next" aria-label="Next training photo">&#8250;</button>
+</div>
+<div class="hg-training-mobile-progress" aria-hidden="true"><span></span></div>
 </div></div></section>
+<script>
+(function(){
+  const track=document.querySelector('#training .hg-training-panels');
+  const back=document.querySelector('#training .hg-training-previous');
+  const forward=document.querySelector('#training .hg-training-next');
+  const progress=document.querySelector('#training .hg-training-mobile-progress span');
+  if(!track||!back||!forward||!progress)return;
+  const slides=[...track.querySelectorAll('.hg-training-panel')];
+  const media=window.matchMedia('(max-width:750px)');
+  const reduced=window.matchMedia('(prefers-reduced-motion:reduce)');
+  function getIndex(){
+    return Math.max(0,Math.min(slides.length-1,Math.round(track.scrollLeft/Math.max(track.clientWidth,1))));
+  }
+  function update(){
+    const position=media.matches?getIndex():0;
+    back.disabled=position===0;
+    forward.disabled=position===slides.length-1;
+    progress.style.width=((position+1)/slides.length*100)+'%';
+  }
+  function move(step){
+    if(!media.matches)return;
+    const index=Math.max(0,Math.min(slides.length-1,getIndex()+step));
+    track.scrollTo({left:index*track.clientWidth,behavior:reduced.matches?'auto':'smooth'});
+  }
+  back.addEventListener('click',()=>move(-1));
+  forward.addEventListener('click',()=>move(1));
+  track.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  if(typeof media.addEventListener==='function')media.addEventListener('change',update);
+  update();
+})();
+</script>
 <section class="statement" id="approach"><div class="wrap"><div class="tag reveal" style="color:#ffacb7">The HARD GYM standard</div>
 <h2 class="reveal">WE'RE NOT HERE TO SELL YOU SHORTCUTS.</h2>
 <p>Training works when you turn up, train with intent and stick to a plan. Our job is to give you the coaching, structure and honest feedback to do exactly that. We'll push you when it's time to push — and make sure the work has a purpose.</p>
