@@ -388,6 +388,30 @@ document.addEventListener('click', function(e) {
 @media(max-width:750px){#training .hg-training-panels{grid-template-columns:1fr;gap:8px}#training .hg-training-panel{height:440px}#training .hg-training-panel span{font-size:42px}}
 @media(prefers-reduced-motion:reduce){#training .hg-training-panel img{transition:none}}
 </style>
+<style>
+/* Training-only typography and full-height vertical photo-side slogans. */
+#training{--hg-side-width:clamp(54px,5.6vw,78px)}
+#training .hg-training-intro{margin-inline:var(--hg-side-width)}
+#training .hg-training-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;width:100%;margin:0 0 24px;font-size:clamp(64px,11vw,142px);font-weight:1000;line-height:.96;letter-spacing:-.055em;color:#f5f1ee;white-space:nowrap}
+#training .hg-training-title span{display:block}
+#training .hg-training-description{display:block;width:100%;max-width:none;margin:0;color:#bfc0c1;font-size:clamp(17px,1.65vw,21px);line-height:1.55;text-align:justify;text-align-last:justify}
+#training .hg-training-showcase{display:grid;grid-template-columns:var(--hg-side-width) minmax(0,1fr) var(--hg-side-width);align-items:stretch;margin-top:38px}
+#training .hg-training-showcase .hg-training-panels{grid-column:2;grid-row:1;min-width:0;margin-top:0}
+#training .hg-training-side{display:flex;flex-direction:row;align-items:center;justify-content:space-between;box-sizing:border-box;width:100%;height:clamp(390px,52vw,700px);padding:10px 5px;writing-mode:vertical-rl;text-orientation:mixed;color:#f5f1ee;font-size:clamp(26px,3.5vw,50px);font-weight:1000;letter-spacing:-.055em;line-height:1;white-space:nowrap}
+#training .hg-training-side span{display:block}
+#training .hg-training-side--left{grid-column:1;grid-row:1}
+#training .hg-training-side--right{grid-column:3;grid-row:1}
+@media(max-width:750px){
+  #training{--hg-side-width:clamp(30px,9vw,45px)}
+  #training .hg-training-title{gap:5px;margin-bottom:16px;font-size:clamp(27px,6.8vw,50px)}
+  #training .hg-training-description{font-size:15px;line-height:1.5;text-align:left;text-align-last:auto}
+  #training .hg-training-showcase{margin-top:24px}
+  #training .hg-training-side{height:440px;padding:10px 3px;font-size:clamp(19px,5.5vw,26px)}
+  #training .hg-training-side--left{align-self:start}
+  #training .hg-training-side--right{align-self:end}
+  #training .hg-training-panel span{font-size:clamp(25px,7vw,40px)}
+}
+</style>
 </head><body>
 <nav><div class="wrap nav"><a aria-label="HARD GYM home" class="logo" href="#"><img alt="HARD GYM" height="108" src="hard-gym-header-logo.png" width="150"/></a><div class="navlinks"><a href="#training">Training</a><a href="#approach">The standard</a><a href="get-started.html">Get started</a></div><details class="hg-mobile-menu"><summary aria-label="Open navigation menu"><span class="hg-menu-icon" aria-hidden="true">☰</span></summary><div class="hg-mobile-menu-panel"><a href="#training">Training</a><a href="#approach">The Standard</a><a href="get-started.html">Get Started</a></div></details></div></nav>
 <header class="hero metal">
@@ -403,12 +427,19 @@ document.addEventListener('click', function(e) {
 <div class="actions reveal"><a class="btn" href="get-started.html">Let's get to work</a></div>
 </div>
 </section>
-<section id="training"><div class="wrap"><div class="tag reveal">The training</div><h2 class="reveal">SHOW UP.<br/>PUT IN THE WORK.</h2>
-<p class="sectionintro reveal">Whether you're starting from scratch or you've been lifting for years, we meet you where you're at — then build from there. Proper coaching. Clear progression. No wasted sessions.</p>
+<section id="training"><div class="wrap">
+<div class="hg-training-intro">
+<h2 class="hg-training-title reveal"><span>THE</span><span>TRAINING</span></h2>
+<p class="sectionintro hg-training-description reveal">Whether you're starting from scratch or you've been lifting for years, we meet you where you're at — then build from there. Proper coaching. Clear progression. No wasted sessions.</p>
+</div>
+<div class="hg-training-showcase">
+<div class="hg-training-side hg-training-side--left" aria-label="SHOW UP."><span>SHOW</span><span>UP.</span></div>
 <div class="hg-training-panels">
 <a class="hg-training-panel reveal" href="get-started.html" aria-label="Enquire about 1-on-1 personal training"><img src="IMG_7191.jpeg" alt="HARD GYM coach spotting a client during a dumbbell press" loading="lazy"/><span>1-ON-1</span></a>
 <a class="hg-training-panel reveal" href="get-started.html" aria-label="Enquire about 2-on-1 personal training"><img src="IMG_8057.jpeg" alt="Two clients training together at HARD GYM" loading="lazy"/><span>2-ON-1</span></a>
 <a class="hg-training-panel reveal" href="get-started.html" aria-label="Enquire about private group training"><img src="IMG_8059.jpeg" alt="HARD GYM members taking part in a coached group session" loading="lazy"/><span>PRIVATE GROUP</span></a>
+</div>
+<div class="hg-training-side hg-training-side--right" aria-label="PUT IN THE WORK."><span>PUT</span><span>IN</span><span>THE</span><span>WORK.</span></div>
 </div></div></section>
 <section class="statement" id="approach"><div class="wrap"><div class="tag reveal" style="color:#ffacb7">The HARD GYM standard</div>
 <h2 class="reveal">WE'RE NOT HERE TO SELL YOU SHORTCUTS.</h2>
