@@ -604,6 +604,36 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
+<style id="hg-desktop-nav-spacing">
+/* Desktop only: reserve real space for the logo and distribute all nav labels evenly. */
+@media (min-width:751px) {
+  nav .wrap.nav {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:clamp(30px,4vw,56px);
+  }
+  nav .wrap.nav > .logo {
+    position:static !important;
+    left:auto !important;
+    top:auto !important;
+    width:106px;
+    flex:0 0 106px;
+    margin:0 !important;
+  }
+  nav .wrap.nav > .navlinks {
+    display:flex;
+    flex:1 1 auto;
+    min-width:0;
+    justify-content:space-between;
+    align-items:center;
+    gap:clamp(12px,2.2vw,30px);
+    font-size:clamp(10px,1vw,12px);
+    letter-spacing:.65px;
+  }
+  nav .wrap.nav > .navlinks a {white-space:nowrap;}
+}
+</style>
 </head><body>
 <nav><div class="wrap nav"><a aria-label="HARD GYM home" class="logo" href="#"><img alt="HARD GYM" height="108" src="hard-gym-header-logo.png" width="150"/></a><div class="navlinks"><a href="#training">Hard Training</a><a href="#approach">The Hard Standard</a><a href="#why-start">Why Start?</a><a href="get-started.html">Get started</a></div><details class="hg-mobile-menu"><summary aria-label="Open navigation menu"><span class="hg-menu-icon" aria-hidden="true">☰</span></summary><div class="hg-mobile-menu-panel"><a href="#training">Hard Training</a><a href="#approach">The Hard Standard</a><a href="#why-start">Why Start?</a><a href="get-started.html">Get Started</a></div></details></div></nav>
 <script>
