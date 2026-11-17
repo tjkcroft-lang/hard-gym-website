@@ -375,6 +375,19 @@ document.addEventListener('click', function(e) {
   if (e.target.closest('.hg-mobile-menu-panel a') || !menu.contains(e.target)) menu.open = false;
 });
 </script>
+<style>
+/* HARD GYM training photo panels only */
+#training .hg-training-panels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:38px}
+#training .hg-training-panel{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;height:clamp(390px,52vw,700px);overflow:hidden;background:linear-gradient(135deg,#353638,#151517);color:#fff;text-decoration:none;isolation:isolate}
+#training .hg-training-panel:not(:last-child){border-right:2px solid #151517}
+#training .hg-training-panel:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.28));z-index:0;pointer-events:none}
+#training .hg-training-panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform .45s ease}
+#training .hg-training-panel span{position:relative;z-index:1;font-size:clamp(24px,3.1vw,50px);font-weight:900;letter-spacing:-.045em;text-align:center;line-height:1.05;text-shadow:0 2px 15px #000a;padding:12px}
+@media(hover:hover){#training .hg-training-panel:hover img{transform:scale(1.055)}}
+#training .hg-training-panel:focus-visible{outline:3px solid #fff;outline-offset:-5px}
+@media(max-width:750px){#training .hg-training-panels{grid-template-columns:1fr;gap:8px}#training .hg-training-panel{height:440px}#training .hg-training-panel span{font-size:42px}}
+@media(prefers-reduced-motion:reduce){#training .hg-training-panel img{transition:none}}
+</style>
 </head><body>
 <nav><div class="wrap nav"><a aria-label="HARD GYM home" class="logo" href="#"><img alt="HARD GYM" height="108" src="hard-gym-header-logo.png" width="150"/></a><div class="navlinks"><a href="#training">Training</a><a href="#approach">The standard</a><a href="get-started.html">Get started</a></div><details class="hg-mobile-menu"><summary aria-label="Open navigation menu"><span class="hg-menu-icon" aria-hidden="true">☰</span></summary><div class="hg-mobile-menu-panel"><a href="#training">Training</a><a href="#approach">The Standard</a><a href="get-started.html">Get Started</a></div></details></div></nav>
 <header class="hero metal">
@@ -392,10 +405,10 @@ document.addEventListener('click', function(e) {
 </section>
 <section id="training"><div class="wrap"><div class="tag reveal">The training</div><h2 class="reveal">SHOW UP.<br/>PUT IN THE WORK.</h2>
 <p class="sectionintro reveal">Whether you're starting from scratch or you've been lifting for years, we meet you where you're at — then build from there. Proper coaching. Clear progression. No wasted sessions.</p>
-<div class="grid">
-<div class="service reveal"><div class="num">01 / FOCUSED</div><h3>1-ON-1 PT</h3><p>Your goals. Your program. A coach focused on getting the most out of every session.</p><a href="get-started.html">Ask about 1-on-1 →</a></div>
-<div class="service reveal"><div class="num">02 / BETTER TOGETHER</div><h3>2-ON-1 PT</h3><p>Bring a mate or your partner. Train together, with coaching that still accounts for your individual needs.</p><a href="get-started.html">Ask about partner training →</a></div>
-<div class="service reveal"><div class="num">03 / SMALL GROUP. BIG INTENT.</div><h3>PRIVATE GROUPS</h3><p>Good people, solid sessions and coaching that doesn't get lost in the crowd.</p><a href="get-started.html">Ask about small groups →</a></div>
+<div class="hg-training-panels">
+<a class="hg-training-panel reveal" href="get-started.html" aria-label="Enquire about 1-on-1 personal training"><img src="IMG_7191.jpeg" alt="HARD GYM coach spotting a client during a dumbbell press" loading="lazy"/><span>1-ON-1</span></a>
+<a class="hg-training-panel reveal" href="get-started.html" aria-label="Enquire about 2-on-1 personal training"><img src="IMG_8057.jpeg" alt="Two clients training together at HARD GYM" loading="lazy"/><span>2-ON-1</span></a>
+<a class="hg-training-panel reveal" href="get-started.html" aria-label="Enquire about private group training"><img src="IMG_8059.jpeg" alt="HARD GYM members taking part in a coached group session" loading="lazy"/><span>PRIVATE GROUP</span></a>
 </div></div></section>
 <section class="statement" id="approach"><div class="wrap"><div class="tag reveal" style="color:#ffacb7">The HARD GYM standard</div>
 <h2 class="reveal">WE'RE NOT HERE TO SELL YOU SHORTCUTS.</h2>
