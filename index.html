@@ -585,6 +585,25 @@ nav.hg-nav-scrolled {background:rgba(18,9,13,.94)!important;background-color:rgb
 }
 @media(prefers-reduced-motion:reduce){#why-start .hg-why-cta{transition:none}#why-start .hg-why-cta:hover{transform:none}}
 </style>
+<style id="hg-why-video-player-support">
+#why-start .hg-why-testimonial-video{display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#111;z-index:3}
+#why-start .hg-why-story.has-video .hg-why-testimonial-video{display:block}
+#why-start .hg-why-story.has-video .hg-why-story-placeholder,
+#why-start .hg-why-story.has-video .hg-why-story-caption,
+#why-start .hg-why-story.has-video .hg-why-story-number{display:none}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('#why-start .hg-why-testimonial-video').forEach(function (video) {
+    const card = video.closest('.hg-why-story');
+    if (!card) return;
+    function enableVideo() { if (video.readyState >= 1) card.classList.add('has-video'); }
+    video.addEventListener('loadedmetadata', enableVideo);
+    video.addEventListener('error', function () { card.classList.remove('has-video'); });
+    enableVideo();
+  });
+});
+</script>
 </head><body>
 <nav><div class="wrap nav"><a aria-label="HARD GYM home" class="logo" href="#"><img alt="HARD GYM" height="108" src="hard-gym-header-logo.png" width="150"/></a><div class="navlinks"><a href="#training">Training</a><a href="#approach">The standard</a><a href="get-started.html">Get started</a></div><details class="hg-mobile-menu"><summary aria-label="Open navigation menu"><span class="hg-menu-icon" aria-hidden="true">☰</span></summary><div class="hg-mobile-menu-panel"><a href="#training">Training</a><a href="#approach">The Standard</a><a href="get-started.html">Get Started</a></div></details></div></nav>
 <script>
@@ -683,16 +702,19 @@ nav.hg-nav-scrolled {background:rgba(18,9,13,.94)!important;background-color:rgb
       <div class="hg-why-rail hg-why-rail-left" aria-hidden="true"><span>REAL PEOPLE.</span><span>REAL WORK.</span></div>
       <div class="hg-why-stories" aria-label="Reserved spaces for future member testimonial videos">
         <article class="hg-why-story hg-why-story-one reveal" data-testimonial-slot="1">
+          <video class="hg-why-testimonial-video" controls playsinline preload="metadata" poster="IMG_7191.jpeg" aria-label="HARD GYM member testimonial — Anthony Gillan"><source src="testimonials/anthony-gillan.mp4" type="video/mp4"></video>
           <div class="hg-why-story-number" aria-hidden="true">01</div>
           <div class="hg-why-story-placeholder"><span class="hg-why-slot-mark" aria-hidden="true">HG</span><span class="hg-why-coming">TESTIMONIAL VIDEO COMING SOON</span></div>
           <div class="hg-why-story-caption"><span>MEMBER STORY / 01</span><h3>THE FIRST STEP.</h3></div>
         </article>
         <article class="hg-why-story hg-why-story-two reveal" data-testimonial-slot="2">
+          <video class="hg-why-testimonial-video" controls playsinline preload="metadata" poster="IMG_8057.jpeg" aria-label="HARD GYM member testimonial — Ian Moase"><source src="testimonials/ian-moase.mp4" type="video/mp4"></video>
           <div class="hg-why-story-number" aria-hidden="true">02</div>
           <div class="hg-why-story-placeholder"><span class="hg-why-slot-mark" aria-hidden="true">HG</span><span class="hg-why-coming">TESTIMONIAL VIDEO COMING SOON</span></div>
           <div class="hg-why-story-caption"><span>MEMBER STORY / 02</span><h3>THE WORK.</h3></div>
         </article>
         <article class="hg-why-story hg-why-story-three reveal" data-testimonial-slot="3">
+          <video class="hg-why-testimonial-video" controls playsinline preload="metadata" poster="IMG_8059.jpeg" aria-label="HARD GYM member testimonial — third member"><source src="testimonials/member-story-3.mp4" type="video/mp4"></video>
           <div class="hg-why-story-number" aria-hidden="true">03</div>
           <div class="hg-why-story-placeholder"><span class="hg-why-slot-mark" aria-hidden="true">HG</span><span class="hg-why-coming">TESTIMONIAL VIDEO COMING SOON</span></div>
           <div class="hg-why-story-caption"><span>MEMBER STORY / 03</span><h3>THE PROGRESS.</h3></div>
