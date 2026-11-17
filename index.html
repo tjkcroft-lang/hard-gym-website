@@ -479,8 +479,27 @@ document.addEventListener('click', function(e) {
 @media (prefers-reduced-motion:reduce){
   #training .hg-training-mobile-progress span{transition:none}
 }
+<style id="hg-sticky-navigation">
+/* Keep the existing HARD GYM logo and nav at the viewport top on every screen. */
+nav {position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%;z-index:1000;}
+nav.hg-nav-scrolled {background:rgba(18,9,13,.94)!important;background-color:rgba(18,9,13,.94)!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);}
+#training,#approach,#contact {scroll-margin-top:96px;}
+@media(max-width:750px){
+  nav {position:fixed!important;top:0!important;left:0!important;right:0!important;}
+  #training,#approach,#contact {scroll-margin-top:105px;}
+}
+</style>
 </style></head><body>
 <nav><div class="wrap nav"><a aria-label="HARD GYM home" class="logo" href="#"><img alt="HARD GYM" height="108" src="hard-gym-header-logo.png" width="150"/></a><div class="navlinks"><a href="#training">Training</a><a href="#approach">The standard</a><a href="get-started.html">Get started</a></div><details class="hg-mobile-menu"><summary aria-label="Open navigation menu"><span class="hg-menu-icon" aria-hidden="true">☰</span></summary><div class="hg-mobile-menu-panel"><a href="#training">Training</a><a href="#approach">The Standard</a><a href="get-started.html">Get Started</a></div></details></div></nav>
+<script>
+(function(){
+  const headerNav=document.querySelector('body > nav');
+  if(!headerNav)return;
+  function refreshNav(){headerNav.classList.toggle('hg-nav-scrolled',window.scrollY>12);}
+  refreshNav();
+  window.addEventListener('scroll',refreshNav,{passive:true});
+})();
+</script>
 <header class="hero metal">
 <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
 <source src="hard-gym-hero.MP4" type="video/mp4">
