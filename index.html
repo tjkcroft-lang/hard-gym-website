@@ -526,6 +526,65 @@ nav.hg-nav-scrolled {background:rgba(18,9,13,.94)!important;background-color:rgb
   #approach .hg-standard-signoff{font-size:clamp(32px,8vw,48px);margin-top:35px}
 }
 </style>
+<style id="hg-why-start-design">
+/* WHY START? testimonial placeholders — scoped to this section only */
+#why-start{background:linear-gradient(180deg,#110e10 0%,#240b13 58%,#100d10 100%);color:#f5f1ee;overflow:hidden}
+#why-start .hg-why-overline{display:flex;justify-content:space-between;align-items:center;gap:18px;padding-bottom:13px;border-bottom:1px solid #ffffff3d;font-size:11px;letter-spacing:2px;font-weight:800;color:#e8b7bf}
+#why-start .hg-why-title{display:flex;align-items:baseline;justify-content:space-between;gap:14px;width:100%;max-width:none;margin:20px 0 28px;font-size:clamp(70px,11vw,143px);letter-spacing:-.075em;line-height:.92;font-weight:1000;color:#fff}
+#why-start .hg-why-title em{font-style:normal;color:#e6a1ad}
+#why-start .hg-why-intro{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(25px,6vw,90px);align-items:start;padding-bottom:48px}
+#why-start .hg-why-intro p{margin:0;max-width:none;text-align:left}
+#why-start .hg-why-intro .hg-why-intro-lead{font-size:clamp(22px,3vw,36px);font-weight:900;line-height:1.12;letter-spacing:-.04em;color:#fff}
+#why-start .hg-why-intro p:not(.hg-why-intro-lead){max-width:550px;font-size:clamp(16px,1.65vw,19px);line-height:1.65;color:#ded1d4}
+#why-start .hg-why-stories-heading{display:flex;justify-content:space-between;gap:12px;padding:18px 0 14px;border-top:1px solid #ffffff54;font-size:clamp(11px,1.1vw,13px);letter-spacing:1.5px;font-weight:900}
+#why-start .hg-why-stories-heading span:last-child{color:#df9bab}
+#why-start .hg-why-showcase{display:grid;grid-template-columns:clamp(38px,5.3vw,68px) minmax(0,1fr) clamp(38px,5.3vw,68px);align-items:stretch}
+#why-start .hg-why-stories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;min-width:0}
+#why-start .hg-why-rail{display:flex;justify-content:space-between;align-items:center;flex-direction:row;writing-mode:vertical-rl;padding:14px 4px;font-size:clamp(15px,1.9vw,25px);line-height:1;letter-spacing:-.04em;font-weight:1000;color:#f5f1ee;white-space:nowrap}
+#why-start .hg-why-rail-left{border-left:1px solid #ffffff30}
+#why-start .hg-why-rail-right{border-right:1px solid #ffffff30}
+#why-start .hg-why-story{position:relative;isolation:isolate;min-width:0;height:clamp(430px,49vw,590px);overflow:hidden;background:#211b20;display:flex;align-items:center;justify-content:center}
+#why-start .hg-why-story:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 60% 27%,rgba(148,44,69,.5),transparent 62%),linear-gradient(145deg,#3f1b27,#151317 76%);pointer-events:none}
+#why-start .hg-why-story-two:before{background:radial-gradient(ellipse at 30% 48%,rgba(123,43,62,.53),transparent 65%),linear-gradient(125deg,#141618,#3d1a24 88%)}
+#why-start .hg-why-story-three:before{background:radial-gradient(ellipse at 72% 58%,rgba(178,53,83,.47),transparent 70%),linear-gradient(145deg,#31151e,#141417 84%)}
+#why-start .hg-why-story:after{content:"";position:absolute;z-index:0;inset:0;background:repeating-linear-gradient(145deg,transparent 0 29px,rgba(255,255,255,.027) 30px 31px,transparent 32px 60px),linear-gradient(0deg,rgba(0,0,0,.72),transparent 50%);pointer-events:none}
+#why-start .hg-why-story-number{position:absolute;top:13px;right:19px;z-index:1;color:#ffffff40;font-size:clamp(54px,7vw,95px);font-weight:1000;letter-spacing:-.07em}
+#why-start .hg-why-story-placeholder{display:flex;flex-direction:column;align-items:center;gap:16px;z-index:1;max-width:85%;text-align:center}
+#why-start .hg-why-slot-mark{display:grid;place-items:center;width:74px;height:74px;border:1px solid #ffffff75;border-radius:50%;font-size:22px;font-weight:900;font-style:italic;letter-spacing:-.11em;color:#fff}
+#why-start .hg-why-coming{font-size:10px;letter-spacing:1.7px;font-weight:900;color:#e8c3cb}
+#why-start .hg-why-story-caption{position:absolute;bottom:23px;left:22px;right:14px;z-index:1;text-align:left}
+#why-start .hg-why-story-caption span{display:block;font-size:11px;font-weight:900;letter-spacing:1.6px;color:#e7bac4;margin-bottom:7px}
+#why-start .hg-why-story-caption h3{font-size:clamp(25px,2.55vw,37px);line-height:.98;font-weight:1000;letter-spacing:-.055em;color:#fff;margin:0}
+#why-start .hg-why-swipe{display:none}
+#why-start .hg-why-footer{display:flex;justify-content:space-between;gap:24px;align-items:center;margin-top:44px;padding-top:25px;border-top:1px solid #ffffff40}
+#why-start .hg-why-footer p{margin:4px 0 0;max-width:none;font-size:clamp(24px,3.2vw,39px);font-weight:1000;line-height:1.05;letter-spacing:-.05em;color:#fff}
+#why-start .hg-why-small{font-size:11px;letter-spacing:1.8px;color:#de9ba9;font-weight:900}
+#why-start .hg-why-cta{display:inline-flex;justify-content:center;align-items:center;flex:none;min-height:58px;padding:17px 27px;background:#f5f1ee;color:#171316;border:1px solid #f5f1ee;font-weight:900;white-space:nowrap;text-decoration:none;transition:transform .22s ease,background-color .22s ease}
+#why-start .hg-why-cta:hover{background:#fff;transform:scale(1.04)}
+#why-start .hg-why-cta:focus-visible{outline:3px solid #f4b7c4;outline-offset:4px}
+@media(max-width:750px){
+  #why-start .hg-why-overline{font-size:9px;letter-spacing:1.3px}
+  #why-start .hg-why-title{display:flex;flex-direction:column;align-items:stretch;gap:0;font-size:clamp(62px,15.8vw,94px);margin:20px 0 24px;line-height:.93}
+  #why-start .hg-why-title em{align-self:flex-end}
+  #why-start .hg-why-intro{grid-template-columns:1fr;gap:14px;padding-bottom:32px}
+  #why-start .hg-why-intro .hg-why-intro-lead{font-size:clamp(23px,6vw,30px)}
+  #why-start .hg-why-intro p:not(.hg-why-intro-lead){font-size:16px;line-height:1.6}
+  #why-start .hg-why-stories-heading{font-size:10px;letter-spacing:.7px}
+  #why-start .hg-why-stories-heading span:last-child{text-align:right}
+  #why-start .hg-why-showcase{display:block}
+  #why-start .hg-why-rail{display:none}
+  #why-start .hg-why-stories{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:5px}
+  #why-start .hg-why-stories::-webkit-scrollbar{display:none}
+  #why-start .hg-why-story{flex:0 0 84%;height:clamp(430px,126vw,570px);scroll-snap-align:start;scroll-snap-stop:always}
+  #why-start .hg-why-story-caption h3{font-size:clamp(27px,8vw,38px)}
+  #why-start .hg-why-swipe{display:flex;justify-content:flex-end;gap:8px;margin:13px 0 0;max-width:none;color:#e8b7bf;font-size:10px;letter-spacing:1.7px;font-weight:900}
+  #why-start .hg-why-swipe span{font-size:17px;line-height:.8}
+  #why-start .hg-why-footer{display:block;margin-top:35px;padding-top:25px}
+  #why-start .hg-why-footer p{font-size:clamp(26px,7.3vw,39px)}
+  #why-start .hg-why-cta{margin-top:24px;width:100%;min-height:58px}
+}
+@media(prefers-reduced-motion:reduce){#why-start .hg-why-cta{transition:none}#why-start .hg-why-cta:hover{transform:none}}
+</style>
 </head><body>
 <nav><div class="wrap nav"><a aria-label="HARD GYM home" class="logo" href="#"><img alt="HARD GYM" height="108" src="hard-gym-header-logo.png" width="150"/></a><div class="navlinks"><a href="#training">Training</a><a href="#approach">The standard</a><a href="get-started.html">Get started</a></div><details class="hg-mobile-menu"><summary aria-label="Open navigation menu"><span class="hg-menu-icon" aria-hidden="true">☰</span></summary><div class="hg-mobile-menu-panel"><a href="#training">Training</a><a href="#approach">The Standard</a><a href="get-started.html">Get Started</a></div></details></div></nav>
 <script>
@@ -611,10 +670,43 @@ nav.hg-nav-scrolled {background:rgba(18,9,13,.94)!important;background-color:rgb
 </div>
 <p class="hg-standard-signoff reveal">NO BULL. JUST WORK.</p>
 </div></section>
-<section class="metal"><div class="wrap"><div class="tag">How to start</div><h2 class="reveal">LESS TALK.<br/>MORE ACTION.</h2>
-<div class="steps"><div class="step"><div class="num">01</div><h3>REACH OUT</h3><p>Tell us what you're working towards and what your training looks like now.</p></div>
-<div class="step"><div class="num">02</div><h3>MAKE A PLAN</h3><p>We'll talk through your goals, experience and which training option fits.</p></div>
-<div class="step"><div class="num">03</div><h3>GET AFTER IT</h3><p>Start training with a clear direction. Then keep showing up and building on it.</p></div></div></div></section>
+<section id="why-start" class="hg-why-start" aria-labelledby="hg-why-title">
+  <div class="wrap">
+    <div class="hg-why-overline reveal"><span>HARD GYM / THE PEOPLE</span><span>LAMBTON, NEWCASTLE</span></div>
+    <h2 id="hg-why-title" class="hg-why-title reveal"><span>WHY</span><em>START?</em></h2>
+    <div class="hg-why-intro reveal">
+      <p class="hg-why-intro-lead">BECAUSE EVERYONE STARTS SOMEWHERE.</p>
+      <p>You don't need to have it all figured out. You need coaching that meets you where you're at, a plan that makes sense, and people who want to see you get better.</p>
+    </div>
+    <div class="hg-why-stories-heading reveal"><span>DON'T JUST TAKE OUR WORD FOR IT.</span><span>THE HARD GYM COMMUNITY</span></div>
+    <div class="hg-why-showcase">
+      <div class="hg-why-rail hg-why-rail-left" aria-hidden="true"><span>REAL PEOPLE.</span><span>REAL WORK.</span></div>
+      <div class="hg-why-stories" aria-label="Reserved spaces for future member testimonial videos">
+        <article class="hg-why-story hg-why-story-one reveal" data-testimonial-slot="1">
+          <div class="hg-why-story-number" aria-hidden="true">01</div>
+          <div class="hg-why-story-placeholder"><span class="hg-why-slot-mark" aria-hidden="true">HG</span><span class="hg-why-coming">TESTIMONIAL VIDEO COMING SOON</span></div>
+          <div class="hg-why-story-caption"><span>MEMBER STORY / 01</span><h3>THE FIRST STEP.</h3></div>
+        </article>
+        <article class="hg-why-story hg-why-story-two reveal" data-testimonial-slot="2">
+          <div class="hg-why-story-number" aria-hidden="true">02</div>
+          <div class="hg-why-story-placeholder"><span class="hg-why-slot-mark" aria-hidden="true">HG</span><span class="hg-why-coming">TESTIMONIAL VIDEO COMING SOON</span></div>
+          <div class="hg-why-story-caption"><span>MEMBER STORY / 02</span><h3>THE WORK.</h3></div>
+        </article>
+        <article class="hg-why-story hg-why-story-three reveal" data-testimonial-slot="3">
+          <div class="hg-why-story-number" aria-hidden="true">03</div>
+          <div class="hg-why-story-placeholder"><span class="hg-why-slot-mark" aria-hidden="true">HG</span><span class="hg-why-coming">TESTIMONIAL VIDEO COMING SOON</span></div>
+          <div class="hg-why-story-caption"><span>MEMBER STORY / 03</span><h3>THE PROGRESS.</h3></div>
+        </article>
+      </div>
+      <div class="hg-why-rail hg-why-rail-right" aria-hidden="true"><span>NO BULL.</span><span>JUST WORK.</span></div>
+    </div>
+    <p class="hg-why-swipe" aria-hidden="true">SWIPE TO SEE MORE <span>↔</span></p>
+    <div class="hg-why-footer reveal">
+      <div><span class="hg-why-small">YOUR STARTING POINT IS RIGHT HERE.</span><p>SHOW UP. WE'LL TAKE IT FROM THERE.</p></div>
+      <a class="btn hg-why-cta" href="get-started.html">LET'S GET TO WORK</a>
+    </div>
+  </div>
+</section>
 <section class="contact" id="contact"><div class="wrap"><div class="tag">Your move</div><h2 class="reveal">READY TO STOP<br/>MUCKING AROUND?</h2>
 <p>Don't need to be fit to start. Don't need to know your way around a gym. Just be willing to turn up and do the work. Tell us what you're after and we'll work out the best place to start.</p>
 
