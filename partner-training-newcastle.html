@@ -66,17 +66,54 @@ h1{font-size:clamp(42px,11vw,67px)}.features{padding:60px 0}.features-grid{grid-
 }
 @media(prefers-reduced-motion:reduce){.button{transition:none}.button:hover{transform:none}}
 </style>
+<style id="hg-service-header-nav-and-popup">
+/* HARD GYM service pages: same four main navigation labels as the homepage */
+header.hg-service-header{position:sticky;top:0;z-index:900;background:#190b11}
+.hg-service-header .header-row{min-height:92px;gap:clamp(24px,5vw,76px)}
+.hg-service-header .brand{flex:0 0 100px;line-height:0}
+.hg-service-header .hg-primary-links{flex:1;min-width:0;display:flex;align-items:center;justify-content:space-between;gap:clamp(12px,2.4vw,34px)}
+.hg-service-header .hg-primary-links a{font-size:clamp(10px,1.05vw,12px);font-weight:900;letter-spacing:.8px;text-decoration:none;white-space:nowrap;line-height:1.3}
+.hg-service-header .hg-primary-links a:hover{color:#f3afbf}
+.hg-service-header .hg-mobile-nav{display:none}
+/* Immediately accessible second row of service pages, instead of tiny footer navigation */
+.hg-service-subnav{position:sticky;top:92px;z-index:890;background:#2b111a;border-top:1px solid #ffffff18;border-bottom:1px solid #c56b7b55}
+.hg-service-subnav-inner{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
+.hg-service-subnav a{display:flex;align-items:center;justify-content:center;text-align:center;min-width:0;min-height:53px;padding:13px 8px;color:#eee5e7;text-decoration:none;font-size:clamp(11px,1.15vw,14px);font-weight:900;letter-spacing:1.1px;border-bottom:3px solid transparent;transition:background-color .18s,color .18s}
+.hg-service-subnav a+a{border-left:1px solid #ffffff1e}
+.hg-service-subnav a[aria-current="page"]{border-bottom-color:#ef9aaf;color:#fff;background:#5a1b2e}
+.hg-service-subnav a:hover{background:#69243a;color:#fff}
+.hg-service-header a:focus-visible,.hg-service-subnav a:focus-visible,.hg-service-header summary:focus-visible{outline:3px solid #efaebf;outline-offset:-3px}
+@media(max-width:760px){
+  .hg-service-header .header-row{min-height:78px;justify-content:space-between;gap:12px}
+  .hg-service-header .brand{flex:0 0 74px}
+  .hg-service-header .hg-primary-links{display:none}
+  .hg-service-header .hg-mobile-nav{display:block;position:relative;margin-left:auto;z-index:2}
+  .hg-service-header .hg-mobile-nav summary{display:grid;place-items:center;width:46px;height:46px;cursor:pointer;list-style:none;border:1px solid #ffffff77;border-radius:5px;background:#171315;color:#fff;font-size:25px}
+  .hg-service-header .hg-mobile-nav summary::-webkit-details-marker{display:none}
+  .hg-service-header .hg-mobile-nav[open] summary{background:#f5f1ee;color:#171315}
+  .hg-service-header .hg-mobile-nav-panel{position:absolute;right:0;top:calc(100% + 8px);width:min(290px,calc(100vw - 40px));background:#171315;border:1px solid #ffffff55;box-shadow:0 10px 30px #0009}
+  .hg-service-header .hg-mobile-nav-panel a{display:flex;align-items:center;justify-content:center;min-height:56px;padding:14px 16px;text-decoration:none;text-align:center;color:#fff;font-size:13px;font-weight:900;letter-spacing:.9px}
+  .hg-service-header .hg-mobile-nav-panel a+a{border-top:1px solid #ffffff23}
+  .hg-service-subnav{top:78px}
+  .hg-service-subnav a{min-height:51px;padding:10px 4px;font-size:clamp(9px,2.8vw,12px);letter-spacing:.25px}
+}
+@media(prefers-reduced-motion:reduce){.hg-service-subnav a{transition:none}}
+</style>
 </head>
 <body>
-<header>
+<header class="hg-service-header">
   <div class="wrap header-row">
     <a class="brand" href="/" aria-label="HARD GYM home"><img src="/hard-gym-header-logo.png" alt="HARD GYM logo" width="150" height="108"></a>
-    <div class="header-actions"><a href="/">Home</a><a href="/#training">Training</a><a href="/#approach">Our standard</a><a href="/get-started.html">Get started</a></div>
+    <nav class="hg-primary-links" aria-label="HARD GYM main navigation"><a href="/#training">HARD TRAINING</a><a href="/#approach">THE HARD STANDARD</a><a href="/#why-start">WHY START?</a><a href="/get-started.html">GET STARTED</a></nav>
+    <details class="hg-mobile-nav">
+      <summary aria-label="Open navigation menu"><span aria-hidden="true">&#9776;</span></summary>
+      <nav class="hg-mobile-nav-panel" aria-label="HARD GYM mobile navigation"><a href="/#training">HARD TRAINING</a><a href="/#approach">THE HARD STANDARD</a><a href="/#why-start">WHY START?</a><a href="/get-started.html">GET STARTED</a></nav>
+    </details>
   </div>
 </header>
+<nav class="hg-service-subnav" aria-label="Choose your training"><div class="wrap hg-service-subnav-inner"><a href="/personal-training-newcastle.html">1-ON-1 PT</a><a href="/partner-training-newcastle.html" aria-current="page">PARTNER PT</a><a href="/small-group-training-newcastle.html">SMALL GROUPS</a></div></nav>
 <main>
 <div class="wrap">
-  <div class="crumbs"><a href="/">HARD GYM</a> / 2-on-1 partner personal training</div>
   <div class="hero">
     <div>
       <p class="eyebrow">PRIVATE COACHING / 02 · LAMBTON, NEWCASTLE</p>
@@ -111,7 +148,66 @@ h1{font-size:clamp(42px,11vw,67px)}.features{padding:60px 0}.features-grid{grid-
 </main>
 <footer><div class="wrap">
 <span>© 2026 HARD GYM PTY LTD · Unit 3, 37 Griffiths Road, Lambton NSW 2299</span>
-<div class="links"><a href="/">Home</a><a href="/personal-training-newcastle.html">1-on-1 PT</a><a href="/partner-training-newcastle.html">Partner PT</a><a href="/small-group-training-newcastle.html">Small groups</a><a href="https://www.instagram.com/hardgymnewcastle/" target="_blank" rel="noopener">Instagram</a></div>
 </div></footer>
+<!-- HARD GYM consultation drawer: paste immediately before </body> in index.html -->
+<style>
+  .hg-drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:9998;opacity:0;visibility:hidden;transition:opacity .28s ease,visibility .28s ease}
+  .hg-drawer{position:fixed;inset:0 0 0 auto;width:min(720px,92vw);height:100%;height:100dvh;padding:0;background:#111112;z-index:9999;transform:translateX(102%);visibility:hidden;transition:transform .32s ease,visibility .32s ease;box-shadow:-18px 0 60px #0008;display:flex;flex-direction:column}
+  .hg-drawer-backdrop.is-open{opacity:1;visibility:visible}
+  .hg-drawer.is-open{transform:translateX(0);visibility:visible}
+  .hg-drawer-toolbar{position:absolute;top:12px;right:18px;z-index:2;display:flex;align-items:center;justify-content:flex-end;padding:0;background:transparent;border:0;min-height:0}
+  .hg-drawer-close{border:0;background:transparent;color:#000;font:normal 30px/1 Arial,sans-serif;width:42px;height:42px;cursor:pointer;display:grid;place-items:center}
+  .hg-drawer-close:focus-visible{outline:3px solid #e4a3ae;outline-offset:2px}
+  .hg-drawer-frame{width:100%;flex:1;border:0;background:#111112}
+  body.hg-drawer-locked{overflow:hidden}
+  @media(max-width:600px){.hg-drawer{width:100vw;max-width:none}.hg-drawer-toolbar{top:8px;right:14px}}
+  @media(prefers-reduced-motion:reduce){.hg-drawer,.hg-drawer-backdrop{transition:none}}
+</style>
+<div class="hg-drawer-backdrop" id="hgDrawerBackdrop" aria-hidden="true"></div>
+<section class="hg-drawer" id="hgDrawer" role="dialog" aria-modal="true" aria-label="Book your free HARD GYM consultation" aria-hidden="true">
+  <div class="hg-drawer-toolbar"><button class="hg-drawer-close" type="button" id="hgDrawerClose" aria-label="Close consultation panel">&times;</button></div>
+  <iframe class="hg-drawer-frame" id="hgDrawerFrame" title="HARD GYM free consultation" data-src="/get-started.html"></iframe>
+</section>
+<script>
+(function(){
+  const drawer=document.getElementById('hgDrawer');
+  const backdrop=document.getElementById('hgDrawerBackdrop');
+  const closeButton=document.getElementById('hgDrawerClose');
+  const frame=document.getElementById('hgDrawerFrame');
+  let previousFocus=null;
+  function openDrawer(){
+    previousFocus=document.activeElement;
+    if(!frame.src) frame.src=frame.dataset.src;
+    drawer.classList.add('is-open');backdrop.classList.add('is-open');
+    drawer.setAttribute('aria-hidden','false');document.body.classList.add('hg-drawer-locked');
+    closeButton.focus();
+  }
+  function closeDrawer(){
+    drawer.classList.remove('is-open');backdrop.classList.remove('is-open');
+    drawer.setAttribute('aria-hidden','true');document.body.classList.remove('hg-drawer-locked');
+    if(previousFocus&&typeof previousFocus.focus==='function') previousFocus.focus();
+  }
+  document.addEventListener('click',function(e){
+    const link=e.target.closest('a[href]');
+    if(!link)return;
+    const url=new URL(link.href,location.href);
+    if(url.origin===location.origin && /(?:^|\/)get-started\.html$/i.test(url.pathname)){
+      e.preventDefault();openDrawer();
+    }
+  });
+  closeButton.addEventListener('click',closeDrawer);
+  backdrop.addEventListener('click',closeDrawer);
+  document.addEventListener('keydown',function(e){
+    if(!drawer.classList.contains('is-open'))return;
+    if(e.key==='Escape')closeDrawer();
+    if(e.key==='Tab' && document.activeElement===closeButton && e.shiftKey){e.preventDefault();closeButton.focus();}
+  });
+})();
+</script>
+
+
+<script>
+(function(){const menu=document.querySelector('.hg-service-header .hg-mobile-nav');if(!menu)return;document.addEventListener('click',function(e){if(e.target.closest('.hg-mobile-nav-panel a')||(!menu.contains(e.target)&&menu.open))menu.open=false});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.open)menu.open=false})})();
+</script>
 </body>
 </html>
