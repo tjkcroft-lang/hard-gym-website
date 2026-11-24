@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#160c11">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Private client bookings for HARD GYM personal training in Lambton, Newcastle.">
+<title>HARD GYM | Client Bookings</title>
+<link rel="icon" href="/hard-gym-favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="./styles.css">
+<script defer src="./config.js"></script>
+<script type="module" src="./app.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="/" aria-label="Back to HARD GYM home">
+      <img src="/hard-gym-header-logo.png" width="97" height="70" alt="HARD GYM">
+    </a>
+    <div class="header-right">
+      <span class="header-tag">CLIENT BOOKINGS</span>
+      <a class="header-link" href="/">BACK TO WEBSITE <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</header>
+<main class="shell">
+  <section class="intro">
+    <p class="eyebrow">PRIVATE COACHING / LAMBTON, NEWCASTLE</p>
+    <h1>YOUR TRAINING.<br><em>SORTED.</em></h1>
+    <p>See what's available. Lock in your session. Show up and do the work.</p>
+  </section>
+
+  <section id="setup-panel" class="notice-card" hidden aria-live="polite">
+    <p class="eyebrow">COMING SOON</p>
+    <h2>BOOKINGS ARE BEING SET UP.</h2>
+    <p>We're getting the client booking system ready. For now, get in touch and we'll organise your sessions directly.</p>
+    <a href="/get-started.html" class="button button-light">GET IN TOUCH</a>
+  </section>
+
+  <section id="auth-panel" class="auth-layout" hidden>
+    <div class="auth-copy">
+      <p class="eyebrow">YOUR SPACE</p>
+      <h2>BOOK IT.<br>WE'LL SEE<br>YOU THERE.</h2>
+      <p>Existing clients can sign in to view their sessions. New clients can create an account and get started.</p>
+      <div class="auth-points"><span>01 / AVAILABLE TIMES</span><span>02 / YOUR BOOKINGS</span><span>03 / ACCOUNT DETAILS</span></div>
+    </div>
+    <div class="auth-card">
+      <div class="tab-bar" role="tablist" aria-label="Account access">
+        <button id="login-tab" class="tab active" type="button" role="tab" aria-selected="true">SIGN IN</button>
+        <button id="signup-tab" class="tab" type="button" role="tab" aria-selected="false">CREATE ACCOUNT</button>
+      </div>
+      <form id="login-form" class="form-stack">
+        <h3>WELCOME BACK.</h3>
+        <label for="login-email">EMAIL ADDRESS</label>
+        <input id="login-email" type="email" name="email" required autocomplete="email" maxlength="200" placeholder="you@example.com">
+        <label for="login-password">PASSWORD</label>
+        <input id="login-password" type="password" required autocomplete="current-password" minlength="8">
+        <button type="submit" class="button button-light">SIGN IN</button>
+        <button type="button" class="link-button" id="forgot-password">Forgot password?</button>
+      </form>
+      <form id="signup-form" class="form-stack" hidden>
+        <h3>JOIN THE CREW.</h3>
+        <label for="signup-name">FULL NAME</label>
+        <input id="signup-name" type="text" name="full_name" required autocomplete="name" maxlength="120">
+        <label for="signup-email">EMAIL ADDRESS</label>
+        <input id="signup-email" type="email" required autocomplete="email" maxlength="200">
+        <label for="signup-password">CREATE PASSWORD</label>
+        <input id="signup-password" type="password" required autocomplete="new-password" minlength="8" placeholder="At least 8 characters">
+        <label class="consent-row" for="signup-consent"><input id="signup-consent" type="checkbox" required><span>I understand HARD GYM will use my name, email and bookings to manage my training sessions, using Supabase and our email provider. I agree to the <a href="#privacy">privacy information</a> below.</span></label>
+        <button type="submit" class="button button-light">CREATE ACCOUNT</button>
+        <p class="fineprint">You'll receive an email to verify your account before you can book.</p>
+      </form>
+      <form id="reset-form" class="form-stack" hidden>
+        <h3>NEW PASSWORD.</h3>
+        <label for="reset-password">NEW PASSWORD</label>
+        <input id="reset-password" type="password" autocomplete="new-password" minlength="8" required>
+        <button type="submit" class="button button-light">SAVE PASSWORD</button>
+      </form>
+      <p class="feedback" id="auth-feedback" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section id="app-panel" hidden>
+    <div class="welcome">
+      <div><p class="eyebrow">YOUR HARD GYM ACCOUNT</p><h2 id="welcome-name">LET'S GET TO WORK.</h2><p id="welcome-sub" class="sub">Manage your sessions in one place.</p></div>
+      <button type="button" class="text-button" id="logout-button">SIGN OUT</button>
+    </div>
+    <div class="app-tabs" role="tablist" aria-label="Client bookings">
+      <button type="button" class="app-tab selected" data-view="availability" aria-selected="true">AVAILABLE SESSIONS</button>
+      <button type="button" class="app-tab" data-view="bookings" aria-selected="false">MY BOOKINGS</button>
+      <button type="button" class="app-tab" data-view="profile" aria-selected="false">MY DETAILS</button>
+      <button type="button" class="app-tab" data-view="admin" aria-selected="false" id="admin-tab" hidden>COACH DASHBOARD</button>
+    </div>
+
+    <section id="view-availability" class="view-panel">
+      <div class="panel-heading"><div><p class="eyebrow">YOUR NEXT SESSION</p><h2>FIND YOUR TIME.</h2></div><p class="aside-copy">All times shown in Newcastle / Sydney time.</p></div>
+      <div class="filters">
+        <label for="service-filter">TRAINING TYPE</label>
+        <select id="service-filter"><option value="all">ALL TRAINING</option><option value="one_on_one">1-ON-1 PT</option><option value="partner">PARTNER PT</option><option value="small_group">SMALL GROUPS</option></select>
+        <button type="button" class="button button-outline" id="refresh-slots">REFRESH TIMES</button>
+      </div>
+      <div id="slots-list" class="slots-list" aria-live="polite"><p class="empty">Sign in to see the timetable.</p></div>
+      <p class="fineprint">2-on-1 partner bookings reserve the session for you and your partner. Small-group sessions may have multiple places available.</p>
+    </section>
+
+    <section id="view-bookings" class="view-panel" hidden>
+      <div class="panel-heading"><div><p class="eyebrow">ALL IN ONE PLACE</p><h2>YOUR BOOKINGS.</h2></div></div>
+      <div id="my-bookings-list" class="booking-list" aria-live="polite"></div>
+      <p class="fineprint" id="cancellation-policy"></p>
+    </section>
+
+    <section id="view-profile" class="view-panel" hidden>
+      <div class="panel-heading"><div><p class="eyebrow">KEEP IT UP TO DATE</p><h2>YOUR DETAILS.</h2></div></div>
+      <form id="profile-form" class="profile-form">
+        <label for="profile-name">FULL NAME</label><input id="profile-name" required maxlength="120" autocomplete="name">
+        <label for="profile-email">EMAIL (ACCOUNT LOGIN)</label><input id="profile-email" disabled type="email">
+        <label for="profile-phone">PHONE NUMBER (OPTIONAL)</label><input id="profile-phone" autocomplete="tel" type="tel" maxlength="40" placeholder="04xx xxx xxx">
+        <button type="submit" class="button button-light">SAVE DETAILS</button>
+      </form>
+      <p class="fineprint">For account email changes or assistance, please contact HARD GYM.</p>
+    </section>
+
+    <section id="view-admin" class="view-panel" hidden>
+      <div class="panel-heading"><div><p class="eyebrow">HARD GYM / COACH ONLY</p><h2>RUN THE SHOW.</h2></div><p class="aside-copy">Create available times, check who's booked and block sessions.</p></div>
+      <div class="admin-layout">
+        <form id="create-slot-form" class="admin-card form-stack">
+          <h3>ADD AVAILABLE TIME</h3>
+          <label for="admin-date">DATE</label><input type="date" id="admin-date" required>
+          <label for="admin-time">START TIME (SYDNEY)</label><input type="time" id="admin-time" value="06:00" required>
+          <label for="admin-duration">DURATION</label><select id="admin-duration"><option value="45">45 MINUTES</option><option value="60" selected>60 MINUTES</option><option value="75">75 MINUTES</option><option value="90">90 MINUTES</option></select>
+          <label for="admin-service">SESSION TYPE</label><select id="admin-service"><option value="one_on_one">1-ON-1 PERSONAL TRAINING</option><option value="partner">2-ON-1 PARTNER TRAINING</option><option value="small_group">PRIVATE SMALL GROUP</option></select>
+          <label for="admin-coach">COACH</label><input id="admin-coach" value="HARD GYM" maxlength="80" required>
+          <label for="admin-capacity">TOTAL BOOKABLE PLACES</label><input id="admin-capacity" type="number" min="1" max="12" value="1" required>
+          <label class="consent-row" for="admin-repeat"><input id="admin-repeat" type="checkbox"><span>Repeat the same time weekly for the next 4 weeks</span></label>
+          <button type="submit" class="button button-light">ADD TIME TO CALENDAR</button>
+          <p class="fineprint">Private 1-on-1 and partner sessions reserve the full slot. Group capacity can be 1–12. Overlapping sessions for the same coach are blocked.</p>
+        </form>
+        <div class="admin-card">
+          <h3>UPCOMING SESSIONS</h3>
+          <div id="admin-slots-list" class="admin-list"></div>
+        </div>
+      </div>
+      <div class="admin-card admin-wide">
+        <h3>CLIENT BOOKINGS</h3>
+        <div id="admin-bookings-list" class="admin-list"></div>
+      </div>
+      <form id="settings-form" class="admin-card settings-form">
+        <h3>BOOKING RULES</h3>
+        <label for="setting-cutoff">CLIENT CANCELLATION CUTOFF (HOURS)</label><input id="setting-cutoff" type="number" min="0" max="168">
+        <label for="setting-max">MAX UPCOMING BOOKINGS PER CLIENT</label><input id="setting-max" type="number" min="1" max="100">
+        <label for="setting-window">BOOKABLE DAYS AHEAD</label><input id="setting-window" type="number" min="1" max="365">
+        <button type="submit" class="button button-outline">SAVE RULES</button>
+      </form>
+      <p class="fineprint">Notifications are sent by email only when the private webhook and mail provider have been connected. Check the installation guide before opening bookings to clients.</p>
+    </section>
+    <p id="app-feedback" class="feedback" role="status" aria-live="polite"></p>
+  </section>
+
+  <dialog id="booking-dialog" class="booking-dialog" aria-labelledby="dialog-title">
+    <form id="confirm-booking-form" class="form-stack">
+      <p class="eyebrow">ONE STEP LEFT</p>
+      <h2 id="dialog-title">CONFIRM YOUR SESSION.</h2>
+      <p id="dialog-details"></p>
+      <div id="partner-field" hidden><label for="booking-partner-name">TRAINING PARTNER'S FIRST NAME (OPTIONAL)</label><input id="booking-partner-name" maxlength="120"></div>
+      <div class="dialog-actions"><button type="button" class="button button-outline" id="cancel-dialog">GO BACK</button><button type="submit" class="button button-light">CONFIRM BOOKING</button></div>
+    </form>
+  </dialog>
+</main>
+<footer id="privacy">
+  <div class="shell footer-inner">
+    <p>© HARD GYM · LAMBTON, NEWCASTLE · NO BULL. JUST WORK.</p>
+    <p class="privacy-copy">Booking details are used to manage your sessions and contact you about them. Your account is managed by Supabase and booking emails are handled by our email provider. Please do not enter medical information. For privacy or booking questions, contact <a href="mailto:info@hardgym.com.au">info@hardgym.com.au</a>.</p>
+  </div>
+</footer>
+</body>
+</html>
