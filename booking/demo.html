@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#160c11">
+<meta name="robots" content="noindex,nofollow">
+<title>HARD GYM | Booking App Design Preview</title>
+<link rel="stylesheet" href="./styles.css">
+<style>
+.demo-warning{padding:13px 20px;background:#f5f1ee;color:#201219;text-align:center;font-size:12px;font-weight:900;letter-spacing:.9px}
+.demo-switch{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.demo-switch button{border:1px solid #e4a5b5;background:#27151c;color:#fff;padding:12px 18px;font-weight:900;font-size:12px}
+.demo-switch button.active{background:#f5f1ee;color:#170c12}
+.demo-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.demo-tile{padding:23px;background:#2b1720;border:1px solid #634050}
+.demo-tile strong{display:block;font-size:34px;letter-spacing:-.07em}
+.demo-tile span{color:#dcb7c1;font-size:12px;font-weight:900}
+@media(max-width:650px){.demo-tiles{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="demo-warning">DESIGN PREVIEW ONLY · SAMPLE SESSIONS · NO LIVE BOOKINGS OR EMAILS</div>
+<header class="site-header"><div class="shell header-inner">
+<a class="brand" href="/" aria-label="HARD GYM website"><img src="/hard-gym-header-logo.png" width="97" height="70" alt="HARD GYM"></a>
+<div class="header-right"><span class="header-tag">BOOKING APP PREVIEW</span><a class="header-link" href="/booking/">BOOKING SETUP ↗</a></div>
+</div></header>
+<main class="shell">
+<section class="intro"><p class="eyebrow">HARD GYM / CLIENT SCHEDULING</p><h1>YOUR TRAINING.<br><em>SORTED.</em></h1><p>This is how the booking app will look when it's connected. Everything on this screen is sample data.</p></section>
+<section style="padding:42px 0 88px">
+<div class="demo-switch">
+<button type="button" id="show-client" class="active" aria-pressed="true">CLIENT VIEW</button>
+<button type="button" id="show-coach" aria-pressed="false">COACH DASHBOARD</button>
+</div>
+<section id="demo-client">
+<div class="welcome"><div><p class="eyebrow">YOUR HARD GYM ACCOUNT</p><h2>HEY, SAM.</h2><p class="sub">Manage your sessions in one place.</p></div><span class="pill">SAMPLE ACCOUNT</span></div>
+<div class="app-tabs"><button class="app-tab selected" type="button" id="show-times">AVAILABLE SESSIONS</button><button class="app-tab" type="button" id="show-bookings">MY BOOKINGS</button></div>
+<div id="demo-times" class="view-panel">
+<div class="panel-heading"><div><p class="eyebrow">YOUR NEXT SESSION</p><h2>FIND YOUR TIME.</h2></div><p class="aside-copy">Newcastle / Sydney time</p></div>
+<div class="filters"><label for="demo-filter">TRAINING TYPE</label><select id="demo-filter"><option>ALL TRAINING</option><option>1-ON-1 PT</option><option>PARTNER PT</option><option>SMALL GROUPS</option></select><span class="pill">EXAMPLE TIMES</span></div>
+<div class="date-group"><h3>MONDAY 30 NOVEMBER 2026</h3>
+<article class="slot-card" data-type="1-ON-1 PT"><div><h4>5:00 AM – 6:00 AM</h4><p>1-ON-1 PERSONAL TRAINING · HARD GYM</p><span class="pill">SESSION AVAILABLE</span></div><button class="button button-light" data-demo-book="1-on-1 · Monday 5:00 AM">BOOK THIS TIME</button></article>
+<article class="slot-card" data-type="PARTNER PT"><div><h4>6:00 AM – 7:00 AM</h4><p>2-ON-1 PARTNER TRAINING · HARD GYM</p><span class="pill">SESSION AVAILABLE</span></div><button class="button button-light" data-demo-book="Partner · Monday 6:00 AM">BOOK THIS TIME</button></article>
+</div><div class="date-group"><h3>TUESDAY 1 DECEMBER 2026</h3>
+<article class="slot-card" data-type="SMALL GROUPS"><div><h4>6:15 AM – 7:15 AM</h4><p>PRIVATE SMALL GROUP · HARD GYM</p><span class="pill">4 PLACES LEFT</span></div><button class="button button-light" data-demo-book="Small group · Tuesday 6:15 AM">BOOK THIS TIME</button></article></div>
+<p class="fineprint">These are illustrative times only, not the real HARD GYM timetable.</p>
+</div>
+<div id="demo-bookings" class="view-panel" hidden><div class="panel-heading"><div><p class="eyebrow">ALL IN ONE PLACE</p><h2>YOUR BOOKINGS.</h2></div></div>
+<article class="booking-card"><div><h4>WEDNESDAY 2 DECEMBER 2026 · 5:00 AM</h4><p>1-ON-1 PERSONAL TRAINING · HARD GYM</p><span class="pill">EXAMPLE CONFIRMED</span></div><button class="button button-outline" data-demo-book="Cancellation">CANCEL BOOKING</button></article>
+<p class="fineprint">Bookings and cancellations are examples. No actual booking is stored.</p></div>
+</section>
+<section id="demo-coach" hidden>
+<div class="welcome"><div><p class="eyebrow">HARD GYM / COACH ONLY</p><h2>RUN THE SHOW.</h2><p class="sub">A quick look at the booking management dashboard.</p></div><span class="pill">EXAMPLE ONLY</span></div>
+<div class="demo-tiles"><div class="demo-tile"><strong>12</strong><span>BOOKED THIS WEEK</span></div><div class="demo-tile"><strong>7</strong><span>AVAILABLE SLOTS</span></div><div class="demo-tile"><strong>3</strong><span>TRAINING TYPES</span></div></div>
+<div class="admin-layout" style="margin-top:25px">
+<div class="admin-card"><h3>ADD AVAILABLE TIME</h3><form class="form-stack" id="demo-create">
+<label for="demo-date">DATE</label><input id="demo-date" type="date" value="2026-11-30">
+<label for="demo-hour">TIME</label><input id="demo-hour" type="time" value="06:00">
+<label for="demo-type">SESSION</label><select id="demo-type"><option>1-ON-1 PERSONAL TRAINING</option><option>2-ON-1 PARTNER TRAINING</option><option>PRIVATE SMALL GROUP</option></select>
+<label class="consent-row"><input type="checkbox"> Repeat weekly for 4 weeks</label>
+<button class="button button-light" type="submit">ADD TIME TO CALENDAR</button></form></div>
+<div class="admin-card"><h3>UPCOMING SESSIONS</h3><div class="admin-item"><div><strong>MON 30 NOV · 5:00 AM</strong><small>1-ON-1 PERSONAL TRAINING · 1/1 BOOKED</small></div><span class="pill">BOOKED</span></div><div class="admin-item"><div><strong>MON 30 NOV · 6:00 AM</strong><small>2-ON-1 PARTNER TRAINING · 0/1 BOOKED</small></div><span class="pill">OPEN</span></div><div class="admin-item"><div><strong>TUE 1 DEC · 6:15 AM</strong><small>PRIVATE SMALL GROUP · 2/6 BOOKED</small></div><span class="pill">OPEN</span></div></div>
+</div>
+<div class="admin-card admin-wide"><h3>CLIENT BOOKINGS</h3><div class="admin-item"><div><strong>SAM EXAMPLE · MON 30 NOV · 5:00 AM</strong><small>1-ON-1 PERSONAL TRAINING · example@email.com</small></div><span class="pill">CONFIRMED</span></div></div>
+</section>
+<p id="demo-feedback" role="status" class="feedback"></p>
+</section>
+</main>
+<footer><div class="shell footer-inner"><p>HARD GYM · NO BULL. JUST WORK.</p><p>Preview only. This page does not log clients in, store bookings, or send notifications.</p></div></footer>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+function section(coach){$('demo-client').hidden=coach;$('demo-coach').hidden=!coach;
+$('show-client').classList.toggle('active',!coach);$('show-coach').classList.toggle('active',coach);
+$('show-client').setAttribute('aria-pressed',String(!coach));$('show-coach').setAttribute('aria-pressed',String(coach));$('demo-feedback').textContent='';}
+$('show-client').addEventListener('click',()=>section(false));
+$('show-coach').addEventListener('click',()=>section(true));
+$('show-times').addEventListener('click',()=>switchTab(false));
+$('show-bookings').addEventListener('click',()=>switchTab(true));
+function switchTab(bookings){$('demo-times').hidden=bookings;$('demo-bookings').hidden=!bookings;
+$('show-times').classList.toggle('selected',!bookings);$('show-bookings').classList.toggle('selected',bookings);}
+$('demo-filter').addEventListener('change',()=>{const f=$('demo-filter').value;
+document.querySelectorAll('[data-type]').forEach(card=>card.hidden=f!=='ALL TRAINING'&&card.dataset.type!==f);});
+document.addEventListener('click',e=>{const btn=e.target.closest('[data-demo-book]');if(!btn)return;
+$('demo-feedback').textContent='DESIGN PREVIEW ONLY: '+btn.dataset.demoBook+'. No booking was made and no email was sent.';});
+$('demo-create').addEventListener('submit',e=>{e.preventDefault();$('demo-feedback').textContent='DESIGN PREVIEW ONLY: No appointment was created.';});
+})();
+</script>
+</body></html>
