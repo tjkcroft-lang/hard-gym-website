@@ -30,8 +30,8 @@ h3{font-size:26px;margin:0 0 20px}
 .header-tag{color:#eba8ba}.header-link{text-decoration:none}
 .header-link:hover{color:var(--hot)}
 .eyebrow{margin:0 0 13px;font-size:11px;letter-spacing:2.1px;font-weight:900;color:#e99baf}
-.intro{padding:clamp(47px,7vw,92px) 0 clamp(42px,6vw,72px);border-bottom:1px solid #ffffff26}
-.intro p:last-child{margin:0;max-width:640px;font-size:clamp(17px,2.2vw,24px);color:#d8cbd0}
+
+
 .button{display:inline-flex;justify-content:center;align-items:center;text-align:center;gap:8px;
   min-height:54px;padding:15px 26px;text-decoration:none;font-size:12px;font-weight:900;letter-spacing:1.1px;
   border:1px solid transparent;transition:transform .2s ease,background-color .2s ease}
@@ -128,9 +128,9 @@ footer{border-top:1px solid #5f3a47;background:#120b0e}
 .shell{padding:0 18px}
 .header-inner{min-height:73px}.brand img{width:69px}.header-right{gap:13px}
 .header-tag{display:none}.header-link{font-size:10px;letter-spacing:.7px}
-.intro{padding:41px 0 35px}
+
 h1{font-size:clamp(47px,11.5vw,72px)}
-.intro p:last-child{font-size:16px}
+
 .auth-layout{padding:32px 0 66px}
 .auth-copy h2{font-size:45px}
 .auth-card{padding:22px}
@@ -149,3 +149,69 @@ h1{font-size:clamp(47px,11.5vw,72px)}
 .dialog-actions{flex-direction:column-reverse}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}.button:not(:disabled):hover{transform:none}}
+
+/* Your Move consultation palette, from /get-started.html, scoped to the booking portal. */
+:root{--bg:#f3f0e9;--panel:#fff;--panel2:#e9e4dc;--border:#bdb5b2;--ink:#161517;--dim:#3d3839;--sub:#51484a;--red:#800019;--hot:#98243b;--cream:#f3f0e9;--shadow:#16151718;--nav-height:86px}
+body{padding-top:var(--nav-height);background:var(--bg);color:var(--ink);line-height:1.55}
+main.shell{min-height:calc(100svh - var(--nav-height) - 120px)}
+/* Same main-site desktop layout, sticky header, and mobile dropdown. */
+.site-header{position:fixed;inset:0 0 auto;z-index:1000;background:rgba(18,9,13,.97);color:#e7e5df;border:0;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.site-header .nav{min-height:var(--nav-height);display:flex;align-items:center;justify-content:space-between;gap:clamp(30px,4vw,56px)}
+.site-header .logo{display:block;width:106px;flex:0 0 106px;line-height:0}
+.site-header .logo img{display:block;width:100%;height:auto;object-fit:contain}
+.site-header .navlinks{display:flex;flex:1 1 auto;min-width:0;justify-content:space-between;align-items:center;gap:clamp(12px,2.2vw,30px);font-size:clamp(10px,1vw,12px);font-weight:800;letter-spacing:.65px;text-transform:uppercase}
+.site-header .navlinks a{white-space:nowrap;text-decoration:none}
+.site-header .navlinks a:hover{color:#f47a87}
+.hg-mobile-menu{display:none}
+@media(max-width:750px){
+ :root{--nav-height:96px}
+ .site-header .nav{position:relative;padding:12px 20px 12px 118px;justify-content:flex-end;gap:0}
+ .site-header .logo{position:absolute;left:12px;top:13px;width:94px}
+ .site-header .navlinks{display:none}
+ .hg-mobile-menu{display:block;position:relative;margin-left:auto;z-index:5;color:#fff}
+ .hg-mobile-menu summary{display:flex;align-items:center;gap:9px;list-style:none;cursor:pointer;padding:11px 14px;min-height:44px;border:1px solid rgba(255,255,255,.65);border-radius:6px;background:rgba(15,10,12,.82);font-size:12px;font-weight:900;letter-spacing:1.2px;user-select:none}
+ .hg-mobile-menu summary::-webkit-details-marker{display:none}
+ .hg-menu-icon{font-size:19px;line-height:1}
+ .hg-mobile-menu[open] summary{background:#fff;color:#111}
+ .hg-mobile-menu-panel{position:absolute;top:calc(100% + 8px);right:0;width:min(260px,calc(100vw - 32px));background:#171315;border:1px solid rgba(255,255,255,.3);border-radius:8px;box-shadow:0 12px 35px rgba(0,0,0,.45);overflow:hidden}
+ .hg-mobile-menu-panel a{display:flex;align-items:center;justify-content:center;text-align:center;padding:17px 19px;min-height:52px;text-decoration:none;color:white;font-size:13px;font-weight:800;letter-spacing:.8px;text-transform:uppercase}
+ .hg-mobile-menu-panel a+a{border-top:1px solid rgba(255,255,255,.14)}
+ .hg-mobile-menu-panel a:active{background:#5c1324}
+}
+@media(max-width:380px){.site-header .logo{width:84px}.site-header .nav{padding-left:101px;padding-right:12px}}
+input,select{background:#fff;color:#171517;border-color:var(--border)}
+input::placeholder{color:#756c6e}
+input:disabled{background:#e9e4dc;color:#51484a}
+input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #98243b;outline-offset:3px}
+.site-header a:focus-visible,.site-header summary:focus-visible{outline-color:#fff}
+label{color:#2a2627}
+.eyebrow{color:var(--hot)}
+.button-light{background:var(--red);border-color:var(--red);color:#fff}
+.button-light:hover{background:#a62a40;border-color:#a62a40}
+.button-outline,.text-button{color:var(--red);border-color:var(--red);background:transparent}
+.button-outline:hover,.text-button:hover{background:#8000190b}
+.notice-card,.auth-card,.filters,.slot-card,.booking-card,.admin-card,.booking-dialog{background:var(--panel);border:1px solid var(--border);color:var(--ink);box-shadow:none}
+.notice-card p:not(.eyebrow),.auth-copy>p:not(.eyebrow),.welcome .sub,.aside-copy,.slot-card p,.booking-card p,.booking-dialog p:not(.eyebrow){color:var(--dim)}
+.auth-points span{border-color:var(--border);color:var(--hot)}
+.tab-bar,.app-tabs{border-bottom-color:var(--border)}
+.tab{color:var(--sub)}
+.tab.active{color:var(--red);border-bottom-color:var(--red)}
+.consent-row,.fineprint,.admin-item small{color:var(--sub)}
+.link-button,.feedback{color:var(--red)}
+.feedback.success{color:#22643c}
+.app-tab{background:#e9e4dc;color:#2a2627}
+.app-tab.selected{background:var(--red);color:#fff;border-bottom-color:#98243b}
+.date-group h3,.admin-item{border-color:var(--border)}
+.slot-meta{color:var(--hot)!important}
+.empty{background:#e9e4dc;color:var(--sub)}
+.pill{background:#eee0df;color:#800019}
+.pill.full{background:#e4dfd8;color:#51484a}
+.admin-item button{background:var(--red);border-color:var(--red);color:#fff}
+.admin-item button:hover{background:#a62a40}
+.booking-dialog{box-shadow:0 30px 90px #0004}
+footer{background:var(--bg);border-color:var(--border)}
+.footer-inner p{color:var(--sub)}
+.welcome{padding:35px 0 27px}
+.view-panel{padding-top:35px}
+.auth-layout{padding-top:40px}
+@media(max-width:620px){.welcome{padding:24px 0 18px}.view-panel{padding-top:26px}.auth-layout{padding-top:25px}.app-tabs{flex-wrap:wrap;overflow:visible}.app-tab{flex:1 1 30%;white-space:normal}}
