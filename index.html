@@ -719,6 +719,42 @@ footer .hg-coaching-links{display:flex;gap:12px 25px;justify-content:center;alig
 footer .hg-coaching-links a{font-size:11px;line-height:1.5;color:#c8c1c3;text-decoration:underline;text-underline-offset:3px;text-transform:none;letter-spacing:.3px}
 footer .hg-coaching-links a:hover{color:#fff}
 </style>
+<style id="hg-training-learn-more-interaction">
+/* Scoped to the three homepage training photos; retain layout and carousel. */
+#training .hg-training-showcase .hg-training-panel .hg-training-learn-bubble{
+  position:absolute;left:50%;bottom:clamp(26px,8%,64px);z-index:3;
+  display:inline-flex;align-items:center;justify-content:center;
+  width:max-content;max-width:calc(100% - 28px);
+  margin:0;padding:13px 23px;border:1px solid #f6eff0;border-radius:999px;
+  background:#f5f1ee;color:#1a1015;
+  font:900 clamp(11px,1.15vw,15px)/1.2 Arial,Helvetica,sans-serif;
+  letter-spacing:1.35px;text-shadow:none;white-space:nowrap;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translate(-50%,12px) scale(.94);
+  transition:opacity .22s ease,transform .24s ease,visibility .22s ease;
+  box-shadow:0 8px 24px #0009;
+}
+@media (hover:hover) and (pointer:fine) {
+  #training .hg-training-showcase .hg-training-panel:hover .hg-training-learn-bubble,
+  #training .hg-training-showcase .hg-training-panel:focus-visible .hg-training-learn-bubble {
+    opacity:1;visibility:visible;transform:translate(-50%,0) scale(1);
+  }
+}
+#training .hg-training-showcase .hg-training-panel.hg-training-preview .hg-training-learn-bubble {
+  opacity:1;visibility:visible;transform:translate(-50%,0) scale(1);
+}
+#training .hg-training-showcase .hg-training-panel.hg-training-preview img {transform:scale(1.055);}
+@media (max-width:750px), (hover:none), (pointer:coarse) {
+  #training .hg-training-showcase .hg-training-panel{touch-action:manipulation;}
+  #training .hg-training-showcase .hg-training-panel .hg-training-learn-bubble{
+    bottom:11%;padding:13px 24px;font-size:13px;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  #training .hg-training-showcase .hg-training-panel .hg-training-learn-bubble{transition:none;}
+  #training .hg-training-showcase .hg-training-panel.hg-training-preview img{transform:none;}
+}
+</style>
 </head><body>
 <nav><div class="wrap nav"><a aria-label="HARD GYM home" class="logo" href="#"><img alt="HARD GYM" height="108" src="hard-gym-header-logo.png" width="150"/></a><div class="navlinks"><a href="#training">Hard Training</a><a href="#approach">The Hard Standard</a><a href="#why-start">Why Start?</a><a href="get-started.html">Get started</a></div><details class="hg-mobile-menu"><summary aria-label="Open navigation menu"><span class="hg-menu-icon" aria-hidden="true">☰</span></summary><div class="hg-mobile-menu-panel"><a href="#training">Hard Training</a><a href="#approach">The Hard Standard</a><a href="#why-start">Why Start?</a><a href="get-started.html">Get Started</a></div></details></div></nav>
 <script>
@@ -750,9 +786,9 @@ footer .hg-coaching-links a:hover{color:#fff}
 <div class="hg-training-showcase">
 <div class="hg-training-side hg-training-side--left" aria-label="SHOW UP."><span>SHOW</span><span>UP.</span></div>
 <div class="hg-training-panels">
-<a class="hg-training-panel reveal" href="/personal-training-newcastle.html" aria-label="Learn more about 1-on-1 personal training"><img src="IMG_7191.jpeg" alt="HARD GYM coach spotting a client during a dumbbell press" loading="lazy"/><span>1-ON-1</span></a>
-<a class="hg-training-panel reveal" href="/partner-training-newcastle.html" aria-label="Learn more about 2-on-1 partner training"><img src="IMG_8057.jpeg" alt="Two clients training together at HARD GYM" loading="lazy"/><span>2-ON-1</span></a>
-<a class="hg-training-panel reveal" href="/small-group-training-newcastle.html" aria-label="Learn more about private small-group training"><img src="IMG_8059.jpeg" alt="HARD GYM members taking part in a coached group session" loading="lazy"/><span>PRIVATE GROUP</span></a>
+<a class="hg-training-panel reveal" href="/personal-training-newcastle.html" aria-label="Learn more about 1-on-1 personal training"><img src="IMG_7191.jpeg" alt="HARD GYM coach spotting a client during a dumbbell press" loading="lazy"/><span>1-ON-1</span><span class="hg-training-learn-bubble" aria-hidden="true">LEARN MORE?</span></a>
+<a class="hg-training-panel reveal" href="/partner-training-newcastle.html" aria-label="Learn more about 2-on-1 partner training"><img src="IMG_8057.jpeg" alt="Two clients training together at HARD GYM" loading="lazy"/><span>2-ON-1</span><span class="hg-training-learn-bubble" aria-hidden="true">LEARN MORE?</span></a>
+<a class="hg-training-panel reveal" href="/small-group-training-newcastle.html" aria-label="Learn more about private small-group training"><img src="IMG_8059.jpeg" alt="HARD GYM members taking part in a coached group session" loading="lazy"/><span>PRIVATE GROUP</span><span class="hg-training-learn-bubble" aria-hidden="true">LEARN MORE?</span></a>
 </div>
 <div class="hg-training-side hg-training-side--right" aria-label="PUT IN THE WORK."><span>PUT</span><span>IN</span><span>THE</span><span>WORK.</span></div>
 <div class="hg-training-mobile-controls" aria-label="Training photo carousel controls">
@@ -791,6 +827,48 @@ footer .hg-coaching-links a:hover{color:#fff}
   window.addEventListener('resize',update);
   if(typeof media.addEventListener==='function')media.addEventListener('change',update);
   update();
+})();
+</script>
+<script id="hg-training-double-tap-interaction">
+(function(){
+  const track=document.querySelector('#training .hg-training-panels');
+  if(!track)return;
+  const cards=[...track.querySelectorAll('a.hg-training-panel')];
+  const mobileOrTouch=window.matchMedia('(max-width:750px), (hover:none), (pointer:coarse)');
+  let previewCard=null, touchStartX=0, touchStartY=0, didSwipe=false;
+  function resetPreview(){
+    if(previewCard)previewCard.classList.remove('hg-training-preview');
+    previewCard=null;
+  }
+  track.addEventListener('touchstart',function(e){
+    const t=e.touches[0];if(!t)return;
+    touchStartX=t.clientX;touchStartY=t.clientY;didSwipe=false;
+  },{passive:true});
+  track.addEventListener('touchmove',function(e){
+    const t=e.touches[0];
+    if(t&&(Math.abs(t.clientX-touchStartX)>12||Math.abs(t.clientY-touchStartY)>12))didSwipe=true;
+  },{passive:true});
+  cards.forEach(function(card){
+    card.addEventListener('click',function(e){
+      // Normal desktop clicks and keyboard activation always follow the link.
+      if(!mobileOrTouch.matches||e.detail===0)return;
+      if(didSwipe){e.preventDefault();resetPreview();return;}
+      if(previewCard!==card){
+        e.preventDefault();
+        resetPreview();
+        previewCard=card;
+        card.classList.add('hg-training-preview');
+      }
+      // The second tap on the same card follows the existing destination link.
+    });
+  });
+  track.addEventListener('scroll',resetPreview,{passive:true});
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('#training .hg-training-panels'))resetPreview();
+  });
+  if(typeof mobileOrTouch.addEventListener==='function'){
+    mobileOrTouch.addEventListener('change',resetPreview);
+  }
 })();
 </script>
 <section class="statement" id="approach"><div class="wrap">
