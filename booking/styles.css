@@ -1,0 +1,151 @@
+:root{
+  --bg:#130e12;--panel:#21171c;--panel2:#30151f;--border:#694151;
+  --ink:#f6f0ee;--dim:#c9bfc3;--sub:#9c8991;--red:#a12742;--hot:#e6a5b5;
+  --cream:#f5f1ee;--shadow:#050205aa;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Arial,Helvetica,sans-serif}
+[hidden]{display:none!important}
+a{color:inherit}button,input,select{font:inherit}
+button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.5}
+input,select{min-height:51px;width:100%;border:1px solid #85636f;background:#110d11;color:#fff;border-radius:0;padding:12px 14px}
+input::placeholder{color:#9b8990}
+input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible{
+  outline:3px solid #f3a4b7;outline-offset:3px
+}
+input[type=checkbox]{width:18px;min-height:18px;height:18px;accent-color:var(--red);flex:none;margin:3px 0 0}
+label{font-size:12px;letter-spacing:1px;font-weight:900;color:#eee1e5}
+h1,h2,h3,p{overflow-wrap:break-word}
+h1,h2,h3{font-weight:1000;letter-spacing:-.065em;line-height:.99;text-transform:uppercase}
+h1{font-size:clamp(56px,10.7vw,136px);margin:19px 0 25px}
+h1 em{font-style:normal;color:#ee9eaf}
+h2{font-size:clamp(31px,5.1vw,65px);margin:0 0 22px}
+h3{font-size:26px;margin:0 0 20px}
+.shell{max-width:1160px;padding:0 24px;margin:0 auto}
+.site-header{background:#170b10;position:relative;border-bottom:1px solid #ffffff2c}
+.header-inner{min-height:89px;display:flex;justify-content:space-between;align-items:center;gap:28px}
+.brand img{display:block;width:93px;height:auto}
+.header-right{display:flex;justify-content:flex-end;align-items:center;gap:28px}
+.header-tag,.header-link{font-size:11px;letter-spacing:1.7px;font-weight:900}
+.header-tag{color:#eba8ba}.header-link{text-decoration:none}
+.header-link:hover{color:var(--hot)}
+.eyebrow{margin:0 0 13px;font-size:11px;letter-spacing:2.1px;font-weight:900;color:#e99baf}
+.intro{padding:clamp(47px,7vw,92px) 0 clamp(42px,6vw,72px);border-bottom:1px solid #ffffff26}
+.intro p:last-child{margin:0;max-width:640px;font-size:clamp(17px,2.2vw,24px);color:#d8cbd0}
+.button{display:inline-flex;justify-content:center;align-items:center;text-align:center;gap:8px;
+  min-height:54px;padding:15px 26px;text-decoration:none;font-size:12px;font-weight:900;letter-spacing:1.1px;
+  border:1px solid transparent;transition:transform .2s ease,background-color .2s ease}
+.button:not(:disabled):hover{transform:scale(1.025)}
+.button-light{background:var(--cream);color:#1d1519}
+.button-light:hover{background:white}
+.button-outline{background:transparent;color:#f4eff0;border-color:#9b828b}
+.button-outline:hover{background:#ffffff13}
+.notice-card{margin:40px 0 90px;padding:clamp(27px,5vw,60px);background:linear-gradient(140deg,#34121f,#191216)}
+.notice-card h2{font-size:clamp(32px,5.5vw,66px)}
+.notice-card p:not(.eyebrow){max-width:670px;color:#d8c9ce;font-size:18px}
+.notice-card .button{margin-top:18px}
+.auth-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(25px,6vw,80px);padding:67px 0 108px}
+.auth-copy{padding:30px 0}
+.auth-copy h2{font-size:clamp(45px,6.4vw,81px)}
+.auth-copy>p:not(.eyebrow){max-width:440px;color:#c9bfc2;font-size:18px}
+.auth-points{display:grid;gap:16px;margin-top:49px}
+.auth-points span{padding:13px 0;border-top:1px solid #76525f;color:#e8a6b6;font-size:12px;letter-spacing:2px;font-weight:900}
+.auth-card{border:1px solid #65434e;background:linear-gradient(155deg,#2c1c23,#141012);padding:clamp(25px,4vw,45px);align-self:start}
+.tab-bar{display:flex;gap:2px;margin-bottom:34px;border-bottom:1px solid #ffffff30}
+.tab{flex:1;padding:14px 10px;background:none;border:0;color:#bda6ae;letter-spacing:1.1px;font-weight:900;font-size:11px;border-bottom:3px solid transparent}
+.tab.active{color:#fff;border-bottom-color:#e9a1b2}
+.form-stack{display:flex;flex-direction:column;gap:12px}
+.form-stack h3{margin:0 0 11px}
+.form-stack label{margin-top:7px}
+.form-stack .button{margin-top:17px}
+.consent-row{display:flex;gap:13px;align-items:flex-start;font-size:12px;letter-spacing:0;line-height:1.55;font-weight:400;color:#d8ced1}
+.consent-row a{text-decoration:underline}
+.link-button{border:none;background:none;color:#e6bac5;text-decoration:underline;font-size:12px;padding:12px}
+.fineprint{font-size:12px;color:#b3a5ab;line-height:1.6}
+.feedback{min-height:0;color:#f0bfca;font-size:14px;font-weight:700;margin:20px 0}
+.feedback.success{color:#b6e3ca}
+.welcome{display:flex;justify-content:space-between;align-items:center;gap:25px;padding:43px 0 31px}
+.welcome h2{font-size:clamp(31px,5.5vw,60px);margin:0}
+.welcome .sub{color:#d0c4c8;margin:11px 0 0}
+.text-button{border:1px solid #9a7c85;background:transparent;color:#fff;padding:13px 18px;white-space:nowrap;font-size:12px;font-weight:900;letter-spacing:1px}
+.text-button:hover{background:#ffffff10}
+.app-tabs{display:flex;gap:5px;border-bottom:1px solid #ffffff40;overflow-x:auto;scrollbar-width:none}
+.app-tabs::-webkit-scrollbar{display:none}
+.app-tab{flex:1 0 auto;border:0;border-bottom:4px solid transparent;background:#28121a;color:#d5c1c8;min-height:58px;padding:13px 18px;white-space:nowrap;font-size:12px;font-weight:900;letter-spacing:1px}
+.app-tab.selected{border-bottom-color:#efa1b6;background:#5c1a2d;color:white}
+.view-panel{padding:50px 0 90px}
+.panel-heading{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:27px}
+.panel-heading h2{margin:0}
+.aside-copy{color:#c7b9bf;font-size:13px;text-align:right;max-width:250px}
+.filters{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:30px;background:#23151c;padding:22px}
+.filters label{min-width:100%;margin-bottom:-10px}
+.filters select{max-width:330px;flex:1}
+.filters .button{min-height:51px}
+.slots-list,.booking-list{display:grid;gap:12px}
+.date-group h3{font-size:clamp(18px,2vw,24px);letter-spacing:-.03em;border-bottom:1px solid #ffffff3f;padding-bottom:13px;margin:30px 0 14px}
+.slot-card,.booking-card{display:flex;justify-content:space-between;align-items:center;gap:23px;padding:20px 24px;border:1px solid #624450;background:linear-gradient(105deg,#291720,#181215)}
+.slot-card div,.booking-card div{min-width:0}
+.slot-card h4,.booking-card h4{margin:0 0 7px;font-size:20px;letter-spacing:-.04em;line-height:1.15}
+.slot-card p,.booking-card p{margin:0;color:#c8bbc0;font-size:13px}
+.slot-meta{margin:10px 0 0!important;color:#e1b4c1!important;font-size:12px!important}
+.slot-card .button,.booking-card .button{min-width:135px}
+.empty{background:#28191f;padding:30px;color:#c9b5bd}
+.pill{display:inline-flex;padding:6px 10px;background:#6b2a40;color:#f5edf0;font-size:11px;letter-spacing:.5px;font-weight:900;margin-top:8px}
+.pill.full{background:#40363a;color:#dfd8d9}
+.profile-form,.settings-form{display:grid;grid-template-columns:minmax(200px,330px) minmax(230px,1fr);gap:16px 20px;max-width:720px;align-items:center}
+.profile-form .button,.settings-form .button{grid-column:2}
+.admin-layout{display:grid;grid-template-columns:minmax(275px,.85fr) 1.15fr;gap:24px}
+.admin-card{padding:29px;background:#25171e;border:1px solid #654450;min-width:0}
+.admin-card h3{font-size:24px}
+.admin-card .form-stack{gap:10px}
+.admin-list{max-height:575px;overflow:auto;min-height:80px}
+.admin-item{display:flex;justify-content:space-between;align-items:center;gap:14px;border-top:1px solid #60404e;padding:14px 2px}
+.admin-item strong{display:block;font-size:14px;line-height:1.3}
+.admin-item small{font-size:12px;color:#bdabb3;display:block}
+.admin-item button{padding:7px 10px;font-size:11px;font-weight:900;background:#5b2334;border:1px solid #ab647c;color:#fff;white-space:nowrap}
+.admin-item button:hover{background:#913a57}
+.admin-wide{margin-top:24px}
+.settings-form{display:grid;margin-top:24px;max-width:900px;grid-template-columns:minmax(190px,1fr) 220px}
+.settings-form h3{grid-column:1/-1}
+.admin-card .fineprint{margin-bottom:0}
+.booking-dialog{border:1px solid #d4abb6;background:#24151c;color:#fff;padding:clamp(24px,4vw,42px);width:min(510px,calc(100vw - 30px));max-height:calc(100dvh - 30px);box-shadow:0 30px 90px #000a}
+.booking-dialog::backdrop{background:#000b}
+.booking-dialog h2{font-size:clamp(31px,5vw,45px)}
+.booking-dialog p:not(.eyebrow){font-size:17px;color:#d8c4cc}
+.dialog-actions{display:flex;gap:10px;margin-top:14px}
+.dialog-actions .button{flex:1;padding:15px 10px;margin:0}
+footer{border-top:1px solid #5f3a47;background:#120b0e}
+.footer-inner{display:flex;justify-content:space-between;gap:25px;align-items:start;padding-top:30px;padding-bottom:40px}
+.footer-inner p{margin:0;font-size:11px;color:#bdaeb4;max-width:620px}
+.privacy-copy{line-height:1.6}
+@media(max-width:850px){
+.auth-layout{grid-template-columns:1fr;gap:16px}
+.auth-copy{padding:0}.auth-points{display:none}
+.admin-layout{grid-template-columns:1fr}
+.footer-inner{display:block}.footer-inner p+p{margin-top:12px}
+}
+@media(max-width:620px){
+.shell{padding:0 18px}
+.header-inner{min-height:73px}.brand img{width:69px}.header-right{gap:13px}
+.header-tag{display:none}.header-link{font-size:10px;letter-spacing:.7px}
+.intro{padding:41px 0 35px}
+h1{font-size:clamp(47px,11.5vw,72px)}
+.intro p:last-child{font-size:16px}
+.auth-layout{padding:32px 0 66px}
+.auth-copy h2{font-size:45px}
+.auth-card{padding:22px}
+.welcome{padding:30px 0 20px;align-items:start;gap:13px}
+.welcome .text-button{font-size:10px;padding:10px}
+.welcome h2{font-size:31px}
+.app-tab{font-size:11px;letter-spacing:0;padding:12px 11px;min-height:52px}
+.view-panel{padding:35px 0 55px}
+.panel-heading{display:block}.aside-copy{text-align:left;margin-top:10px}
+.filters{padding:16px}.filters select,.filters .button{max-width:none;flex:1 1 100%}
+.slot-card,.booking-card{align-items:stretch;flex-direction:column;gap:14px;padding:17px}
+.slot-card .button,.booking-card .button{width:100%}
+.profile-form,.settings-form{grid-template-columns:1fr;gap:8px}
+.profile-form .button,.settings-form .button{grid-column:1}
+.admin-card{padding:20px}
+.dialog-actions{flex-direction:column-reverse}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}.button:not(:disabled):hover{transform:none}}
