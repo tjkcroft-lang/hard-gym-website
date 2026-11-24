@@ -3,36 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#160c11">
+<meta name="theme-color" content="#f3f0e9">
 <meta name="robots" content="noindex,nofollow">
 <meta name="description" content="Private client bookings for HARD GYM personal training in Lambton, Newcastle.">
 <title>HARD GYM | Client Bookings</title>
 <link rel="icon" href="/hard-gym-favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./styles.css?v=20261124-2">
 <script defer src="./config.js"></script>
 <script type="module" src="./app.js"></script>
 </head>
 <body>
-<header class="site-header">
-  <div class="shell header-inner">
-    <a class="brand" href="/" aria-label="Back to HARD GYM home">
-      <img src="/hard-gym-header-logo.png" width="97" height="70" alt="HARD GYM">
-    </a>
-    <div class="header-right">
-      <span class="header-tag">CLIENT BOOKINGS</span>
-      <a class="header-link" href="/">BACK TO WEBSITE <span aria-hidden="true">↗</span></a>
-    </div>
-  </div>
-</header>
+<nav class="site-header" aria-label="Main navigation"><div class="shell nav"><a aria-label="HARD GYM home" class="logo" href="/"><img alt="HARD GYM" height="108" src="/hard-gym-header-logo.png" width="150"/></a><div class="navlinks"><a href="/#training">Hard Training</a><a href="/#approach">The Hard Standard</a><a href="/#why-start">Why Start?</a><a href="/get-started.html">Get started</a></div><details class="hg-mobile-menu"><summary aria-label="Open navigation menu"><span class="hg-menu-icon" aria-hidden="true">☰</span></summary><div class="hg-mobile-menu-panel"><a href="/#training">Hard Training</a><a href="/#approach">The Hard Standard</a><a href="/#why-start">Why Start?</a><a href="/get-started.html">Get Started</a></div></details></div></nav>
 <main class="shell">
-  <section class="intro">
-    <p class="eyebrow">PRIVATE COACHING / LAMBTON, NEWCASTLE</p>
-    <h1>YOUR TRAINING.<br><em>SORTED.</em></h1>
-    <p>See what's available. Lock in your session. Show up and do the work.</p>
-  </section>
-
-  <section id="setup-panel" class="notice-card" aria-live="polite">
+<section id="setup-panel" class="notice-card" aria-live="polite">
     <p class="eyebrow">COMING SOON</p>
     <h2>BOOKINGS ARE BEING SET UP.</h2>
     <p>We're getting the client booking system ready. For now, get in touch and we'll organise your sessions directly.</p>
@@ -174,5 +158,63 @@
     <p class="privacy-copy">Booking details are used to manage your sessions and contact you about them. Your account is managed by Supabase and booking emails are handled by our email provider. Please do not enter medical information. For privacy or booking questions, contact <a href="mailto:info@hardgym.com.au">info@hardgym.com.au</a>.</p>
   </div>
 </footer>
+<style>
+  .hg-drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:9998;opacity:0;visibility:hidden;transition:opacity .28s ease,visibility .28s ease}
+  .hg-drawer{position:fixed;inset:0 0 0 auto;width:min(720px,92vw);height:100%;height:100dvh;padding:0;background:#111112;z-index:9999;transform:translateX(102%);visibility:hidden;transition:transform .32s ease,visibility .32s ease;box-shadow:-18px 0 60px #0008;display:flex;flex-direction:column}
+  .hg-drawer-backdrop.is-open{opacity:1;visibility:visible}
+  .hg-drawer.is-open{transform:translateX(0);visibility:visible}
+  .hg-drawer-toolbar{position:absolute;top:12px;right:18px;z-index:2;display:flex;align-items:center;justify-content:flex-end;padding:0;background:transparent;border:0;min-height:0}
+  .hg-drawer-close{border:0;background:transparent;color:#000;font:normal 30px/1 Arial,sans-serif;width:42px;height:42px;cursor:pointer;display:grid;place-items:center}
+  .hg-drawer-close:focus-visible{outline:3px solid #e4a3ae;outline-offset:2px}
+  .hg-drawer-frame{width:100%;flex:1;border:0;background:#111112}
+  body.hg-drawer-locked{overflow:hidden}
+  @media(max-width:600px){.hg-drawer{width:100vw;max-width:none}.hg-drawer-toolbar{top:8px;right:14px}}
+  @media(prefers-reduced-motion:reduce){.hg-drawer,.hg-drawer-backdrop{transition:none}}
+</style>
+<div class="hg-drawer-backdrop" id="hgDrawerBackdrop" aria-hidden="true"></div>
+<section class="hg-drawer" id="hgDrawer" role="dialog" aria-modal="true" aria-label="Book your free HARD GYM consultation" aria-hidden="true">
+  <div class="hg-drawer-toolbar"><button class="hg-drawer-close" type="button" id="hgDrawerClose" aria-label="Close consultation panel">&times;</button></div>
+  <iframe class="hg-drawer-frame" id="hgDrawerFrame" title="HARD GYM free consultation" data-src="/get-started.html"></iframe>
+</section>
+<script>
+(function(){
+  const drawer=document.getElementById('hgDrawer');
+  const backdrop=document.getElementById('hgDrawerBackdrop');
+  const closeButton=document.getElementById('hgDrawerClose');
+  const frame=document.getElementById('hgDrawerFrame');
+  let previousFocus=null;
+  function openDrawer(){
+    previousFocus=document.activeElement;
+    if(!frame.src) frame.src=frame.dataset.src;
+    drawer.classList.add('is-open');backdrop.classList.add('is-open');
+    drawer.setAttribute('aria-hidden','false');document.body.classList.add('hg-drawer-locked');
+    closeButton.focus();
+  }
+  function closeDrawer(){
+    drawer.classList.remove('is-open');backdrop.classList.remove('is-open');
+    drawer.setAttribute('aria-hidden','true');document.body.classList.remove('hg-drawer-locked');
+    if(previousFocus&&typeof previousFocus.focus==='function') previousFocus.focus();
+  }
+  document.addEventListener('click',function(e){
+    const link=e.target.closest('a[href]');
+    if(!link)return;
+    const url=new URL(link.href,location.href);
+    if(url.origin===location.origin && /(?:^|\/)get-started\.html$/i.test(url.pathname)){
+      e.preventDefault();openDrawer();
+    }
+  });
+  closeButton.addEventListener('click',closeDrawer);
+  backdrop.addEventListener('click',closeDrawer);
+  document.addEventListener('keydown',function(e){
+    if(!drawer.classList.contains('is-open'))return;
+    if(e.key==='Escape')closeDrawer();
+    if(e.key==='Tab' && document.activeElement===closeButton && e.shiftKey){e.preventDefault();closeButton.focus();}
+  });
+})();
+</script>
+<script>
+document.addEventListener('click',function(e){const menu=document.querySelector('.hg-mobile-menu');if(menu?.open&&(e.target.closest('.hg-mobile-menu-panel a')||!menu.contains(e.target)))menu.open=false;});
+document.addEventListener('keydown',function(e){const menu=document.querySelector('.hg-mobile-menu');if(e.key==='Escape'&&menu?.open){menu.open=false;menu.querySelector('summary').focus();}});
+</script>
 </body>
 </html>
